@@ -17,7 +17,7 @@ a {
 }
 nav {
     background-color: rgb(255, 90, 90);
-    padding: 3.5%;
+    padding: 3%;
     padding-bottom: 2%;
 }
 nav ul{
@@ -37,13 +37,39 @@ nav ul li {
     color: rgb(235, 235, 0);
     border-left: 1px solid rgb(235, 235, 0);
     border-right: 1px solid rgb(235, 235, 0);
-    transition: 0.6s;
     text-decoration: none;
 }
 .nav-links:hover {
     color: white;
     padding-left: 50px;
     padding-right: 50px;
+}
+#links-area {
+    margin: 0;
+}
+#logo-area {
+    margin: 0;
+}
+#logo {
+    width: 30px;
+    padding: 0;
+}
+#login-area {
+    margin: 0;
+}
+#login {
+    border: 1px solid rgb(235, 235, 0);
+    background-color: rgb(255, 90, 90);
+    font-size: 0.95em;
+    font-weight: bold;
+    color: rgb(235, 235, 0);
+    width: 75px;
+    height: 30px;
+    margin: 0;
+    padding: 3px 8px 3px 8px;
+}
+#login:hover {
+    color: rgb(255, 255, 255);
 }
 hr {
     margin: 0;
@@ -61,6 +87,14 @@ header {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    z-index: 999;
+}
+.flex-box-container-two {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     z-index: 999;
 }
 .h1-white {
@@ -107,7 +141,7 @@ section {
 h2 {
     font-size: 2em;
     position: relative;
-    color: rgb(235, 235, 0);
+    color: rgb(255, 235, 0);
     z-index: 999;
     text-align: center;
     margin: 0;

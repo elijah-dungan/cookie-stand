@@ -22,10 +22,10 @@ function generateList(inputElement, inputNum1, inputNum2, inputNum3) { // genera
   var mean = getMean(inputNum1, inputNum2);
   var cookieArray = [];
   var times = ['6am:', '7am:', '8am:', '9am:', '10am:', '11am:', '12pm:', '1pm:', '2pm:', '3pm:', '4pm:', '5pm:', '6pm:', '7pm:', '8pm:'];
-  for(var i = 0; i < times.length; i++) {
+  for(var i = 0; i <= times.length; i++) {
     cookieArray.push(Math.round(makeRandom(mean)*inputNum3)); // generates random numbers, and pushes into cookieArray
   }
-  for(var j = 0; j < times.length; j++) { // loop for times array
+  for(var j = 0; j <= times.length; j++) { // loop for times array
     var time = times[j]; // loops through times array
     var randomSale = cookieArray[j]; // varable for getting cookies
     var string = 'cookies'; // stores string cookie for looping
