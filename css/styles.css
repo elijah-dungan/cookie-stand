@@ -91,13 +91,14 @@ header {
     margin-top: 7%;
     margin-left: auto;
     margin-right: auto;
+    opacity: 0.8;
     z-index: 1;
 }
 main {
     background-color: rgb(255, 90, 90);
     margin: 0;
     overflow-y: scroll;
-    height: 73vh;
+    height: 73.5vh;
 }
 section {
     display: table;
