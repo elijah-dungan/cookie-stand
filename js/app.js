@@ -74,7 +74,7 @@ function generateList(inputElement, inputNum1, inputNum2, inputNum3) { // genera
     var time = times[j]; // loops through times array
     var randomSale = cookieArray[j]; // varable for getting cookies
     var string = 'cookies'; // stores string cookie for looping
-    var displayList = `${time} ${randomSale} ${string}.`;
+    var displayList = `${time} ${randomSale} ${string}`;
     var makeList = document.getElementById(inputElement);
     var liEl = document.createElement('li');
     liEl.textContent = displayList;
@@ -82,7 +82,7 @@ function generateList(inputElement, inputNum1, inputNum2, inputNum3) { // genera
     //console.log(displayList);
   }
   var total = cookieArray.reduce(getTotal); // perform sum of array here
-  var displayTotal = `Total: ${total} ${string}.`;
+  var displayTotal = `Total: ${total} ${string}`;
   liEl.textContent = displayTotal;
   makeList.appendChild(liEl);
   //console.log(displayTotal);
