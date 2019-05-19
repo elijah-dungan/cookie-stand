@@ -46,20 +46,20 @@ These numbers are simply Pat's estimates for now, but eventually, once there has
 /* --Global Function Declarations-- */
 
 function getMean(a, b) { // gets mean from 2 input variables
-  var sum = (a + b)/2; 
-  console.log(sum);
+  var sum = (a + b)/2;
+  //console.log(sum);
   return sum;
 }
 
 function getTotal(total, num) { // gets average from an array
   var sumTotal = total + num;
-  console.log(sumTotal);
+  //console.log(sumTotal);
   return sumTotal;
 }
 
-function makeRandom(inputInt) { // gets random number from 1 input variable **
+function makeRandom(inputInt) { // gets random number from 1 input variable
   var num = Math.floor(Math.random() * Math.floor(inputInt));
-  console.log(num);
+  //console.log(num);
   return num;
 }
 
@@ -70,8 +70,8 @@ function generateList(inputElement, inputNum1, inputNum2, inputNum3) { // genera
   for(var i = 0; i < times.length; i++) {
     cookieArray.push(Math.round(makeRandom(mean)*inputNum3)); // generates random numbers, and pushes into cookieArray
   }
-  for(var j = 0; j < times.length; j++) { // loop for times array 
-    var time = times[j]; // loops through times array 
+  for(var j = 0; j < times.length; j++) { // loop for times array
+    var time = times[j]; // loops through times array
     var randomSale = cookieArray[j]; // varable for getting cookies
     var string = 'cookies'; // stores string cookie for looping
     var displayList = `${time} ${randomSale} ${string}.`;
@@ -79,13 +79,13 @@ function generateList(inputElement, inputNum1, inputNum2, inputNum3) { // genera
     var liEl = document.createElement('li');
     liEl.textContent = displayList;
     makeList.appendChild(liEl);
-    console.log(displayList);
+    //console.log(displayList);
   }
   var total = cookieArray.reduce(getTotal); // perform sum of array here
   var displayTotal = `Total: ${total} ${string}.`;
   liEl.textContent = displayTotal;
   makeList.appendChild(liEl);
-  console.log(displayTotal);
+  //console.log(displayTotal);
 }
 
 /* --Global Function Declarations-- */
@@ -98,40 +98,33 @@ var firstAndPike = {
   meanSale: 6.3,
   listSales: generateList('first-and-pike', 23, 65, 6.3)
 };
-    
+
 var seaTacAirport = {
   minCust: 3,
   maxCust: 24,
   meanSale: 1.2,
-  listSales: generateList('sea-tac-airport', this.minCust, this.maxCust, this.meanSale)
+  listSales: generateList('sea-tac-airport', 3, 24, 1.2)
 };
 
 var seattleCenter = {
   minCust: 23,
   maxCust: 65,
   meanSale: 6.3,
-  listSales: generateList('seattle-center', this.minCust, this.maxCust, this.meanSale)
+  listSales: generateList('seattle-center', 23, 65, 6.3)
 };
 
 var capitolHill = {
   minCust: 20,
   maxCust: 38,
   meanSale: 2.3,
-  listSales: generateList('capitol-hill', this.minCust, this.maxCust, this.meanSale)
+  listSales: generateList('capitol-hill', 20, 38, 2.3)
 };
 
 var alki = {
   minCust: 2,
   maxCust: 16,
   meanSale: 4.6,
-  listSales: generateList('alki', this.minCust, this.maxCust, this.meanSale)
+  listSales: generateList('alki', 2, 16, 4.6)
 };
 
 /* --Object Literals-- */
-
-// create an element - li
-// add text (the animal names to the element (li)
-// append the element (li) to the parent
-
-
-
