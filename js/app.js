@@ -49,7 +49,7 @@ function generateList(inputElement, inputNum1, inputNum2, inputNum3) { // genera
 /* --Object Literals-- */
 
 var firstAndPike = {
-  storeLocation: 'First and Pike',
+  elementId: 'first-and-pike',
   minCust: 23,
   maxCust: 65,
   meanSale: 6.3,
@@ -57,7 +57,7 @@ var firstAndPike = {
 };
 
 var seaTacAirport = {
-  storeLocation: 'Sea Tac Airport',
+  elementId: 'sea-tac-airport',
   minCust: 3,
   maxCust: 24,
   meanSale: 1.2,
@@ -65,7 +65,7 @@ var seaTacAirport = {
 };
 
 var seattleCenter = {
-  storeLocation: 'Seattle Center',
+  elementId: 'seattle-center',
   minCust: 23,
   maxCust: 65,
   meanSale: 6.3,
@@ -73,7 +73,7 @@ var seattleCenter = {
 };
 
 var capitolHill = {
-  storeLocation: 'Capitol Hill',
+  elementId: 'capitol-hill',
   minCust: 20,
   maxCust: 38,
   meanSale: 2.3,
@@ -81,7 +81,7 @@ var capitolHill = {
 };
 
 var alki = {
-  storeLocation: 'Alki',
+  elementId: 'alki',
   minCust: 2,
   maxCust: 16,
   meanSale: 4.6,
