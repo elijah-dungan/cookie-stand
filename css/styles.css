@@ -16,9 +16,13 @@ body {
 a {
     text-decoration: none; 
 }
+#contact-number {
+    margin: 0 2.9% -1% 0;
+    text-align: right;
+}
 nav {
-    padding: 3%;
-    padding-bottom: 2%;
+    padding: 0 3% 2% 3%;
+    margin: 0;
 }
 nav ul{
     margin: 0;
@@ -31,8 +35,7 @@ nav ul li {
 }
 .nav-links { /* contains the list strings */
     font-size: 1.5em;
-    padding-left: 50px;
-    padding-right: 50px;
+    padding: 0 50px 0 50px;
     font-weight: bold;
     color: rgb(235, 235, 0);
     border-left: 1px solid rgb(235, 235, 0);
@@ -40,9 +43,7 @@ nav ul li {
     text-decoration: none;
 }
 .nav-links:hover {
-    color: white;
-    padding-left: 50px;
-    padding-right: 50px;
+    color: rgb(255, 255, 255);
 }
 #links-area {
     margin: 0;
@@ -103,8 +104,7 @@ header {
     text-align: center;
     color: rgb(255, 255, 255);
     margin: 0;
-    padding-top: 0.5%;
-    padding-bottom: 0.5%;
+    padding: 0.5% 0 0.5% 0;
 }
 .h1-yellow {
     font-family: 'Stylish', Arial, sans-serif;
@@ -113,24 +113,21 @@ header {
     text-align: center;
     color: rgb(235, 235, 0);
     margin: 0;
-    padding-top: 0.5%;
-    padding-bottom: 0.5%;
+    padding: 0.5% 0 0.5% 0;
 }
 #salmon-image {
     width: 80%;
     position: absolute;
     left: 0;
     right: 0;
-    margin-top: 7%;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 7% auto 0 auto;
     opacity: 0.8;
     z-index: 1;
 }
 main {
     margin: 0;
     overflow-y: scroll;
-    height: 73.5vh;
+    height: 73vh;
 }
 section {
     display: table;

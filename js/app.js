@@ -1,53 +1,55 @@
-/* --Global Function Declarations-- */
+'use strict';
+
+/* --Function Declarations-- */
 
 function getMean(a, b) { // gets mean from 2 input variables
   var sum = (a + b)/2;
-  //console.log(sum);
+  console.log(sum);
   return sum;
 }
 
 function getTotal(total, num) { // gets average from an array
   var sumTotal = total + num;
-  //console.log(sumTotal);
+  console.log(sumTotal);
   return sumTotal;
 }
 
 function makeRandom(inputInt) { // gets random number from 1 input variable
   var num = Math.floor(Math.random() * Math.floor(inputInt));
-  //console.log(num);
+  console.log(num);
   return num;
 }
 
-function generateList(inputElement, inputNum1, inputNum2, inputNum3) { // generates a list of random cookies based on 3 variables
-  var mean = getMean(inputNum1, inputNum2);
-  var cookieArray = [];
-  var times = ['6am:', '7am:', '8am:', '9am:', '10am:', '11am:', '12pm:', '1pm:', '2pm:', '3pm:', '4pm:', '5pm:', '6pm:', '7pm:', '8pm:'];
-  for(var i = 0; i <= times.length; i++) {
-    cookieArray.push(Math.round(makeRandom(mean)*inputNum3)); // generates random numbers, and pushes into cookieArray
-  }
-  for(var j = 0; j <= times.length; j++) { // loop for times array
-    var time = times[j]; // loops through times array
-    var randomSale = cookieArray[j]; // varable for getting cookies
-    var string = 'cookies'; // stores string cookie for looping
-    var displayList = `${time} ${randomSale} ${string}`;
-    var makeList = document.getElementById(inputElement);
-    var liEl = document.createElement('li');
-    liEl.textContent = displayList;
-    makeList.appendChild(liEl);
-    //console.log(displayList);
-  }
-  var total = cookieArray.reduce(getTotal); // perform sum of array here
-  var displayTotal = `Total: ${total} ${string}`;
-  liEl.textContent = displayTotal;
+function printList(inputElement, generateEl, inputList) { // generates element using 3 variables
+  var makeList = document.getElementById(inputElement);
+  var liEl = document.createElement(generateEl);
+  liEl.textContent = inputList;
   makeList.appendChild(liEl);
-  //console.log(displayTotal);
+  console.log(inputList);
 }
 
-/* --Global Function Declarations-- */
+function generateList(inputElement, inputNum1, inputNum2, inputNum3) { // generates a list of random cookies based on 3 variables
+  var cookieArray = []; // stores cookies sold
+  var times = ['6am:', '7am:', '8am:', '9am:', '10am:', '11am:', '12pm:', '1pm:', '2pm:', '3pm:', '4pm:', '5pm:', '6pm:', '7pm:', '8pm:'];
+  for(var i = 0; i <= times.length; i ++) { // loop that generates simulated sales and pushes into cookieArray
+    cookieArray.push(Math.round(makeRandom(getMean(inputNum1, inputNum2)) * inputNum3));
+  }
+  for(var j = 0; j <= times.length; j ++) { // loop that generates sales list
+    var displayList = `${times[j]} ${cookieArray[j]} cookies`; // displays time, number of sales, and cookies sold in a string
+    printList(inputElement, 'li', displayList);
+    console.log(displayList);
+  }
+  var displayTotal = `Total: ${cookieArray.reduce(getTotal)} cookies`; // displays total number of cookies sold in a string
+  printList(inputElement, 'li', displayTotal);
+  console.log(displayTotal);
+}
+
+/* --Function Declarations-- */
 
 /* --Object Literals-- */
 
 var firstAndPike = {
+  storeLocation: 'First and Pike',
   minCust: 23,
   maxCust: 65,
   meanSale: 6.3,
@@ -55,6 +57,7 @@ var firstAndPike = {
 };
 
 var seaTacAirport = {
+  storeLocation: 'Sea Tac Airport',
   minCust: 3,
   maxCust: 24,
   meanSale: 1.2,
@@ -62,6 +65,7 @@ var seaTacAirport = {
 };
 
 var seattleCenter = {
+  storeLocation: 'Seattle Center',
   minCust: 23,
   maxCust: 65,
   meanSale: 6.3,
@@ -69,6 +73,7 @@ var seattleCenter = {
 };
 
 var capitolHill = {
+  storeLocation: 'Capitol Hill',
   minCust: 20,
   maxCust: 38,
   meanSale: 2.3,
@@ -76,6 +81,7 @@ var capitolHill = {
 };
 
 var alki = {
+  storeLocation: 'Alki',
   minCust: 2,
   maxCust: 16,
   meanSale: 4.6,
