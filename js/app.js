@@ -8,8 +8,8 @@ function getMean(a, b) { // gets average from 2 integers
   return sum;
 }
 
-function getTotal(total, num) { // gets average from an array of integers
-  var sumTotal = total + num;
+function getSum(total, nextNum) { // gets sum from two numbers, used with reduce() to get total sum from an array
+  var sumTotal = total + nextNum;
   console.log(sumTotal);
   return sumTotal;
 }
@@ -21,10 +21,10 @@ function makeRandom(inputInt) { // gets random number from 1 integer
 }
 
 function printList(inputParentEl, outputChildEl, inputTextContent) { // creates a child element and inputs text within the child element based on an element ID, tag name of child, and input text
-  var getParentEl = document.getElementById(inputParentEl);
-  var newChildEl = document.createElement(outputChildEl);
-  newChildEl.textContent = inputTextContent;
-  getParentEl.appendChild(newChildEl);
+  var getParentEl = document.getElementById(inputParentEl); // gets parent element by ID
+  var newChildEl = document.createElement(outputChildEl); // creates child element
+  newChildEl.textContent = inputTextContent; // adds text to the child element
+  getParentEl.appendChild(newChildEl); // appends the child element to the parent
   console.log(inputTextContent);
 }
 
@@ -39,7 +39,7 @@ function generateList(inputElement, inputNum1, inputNum2, inputNum3) { // genera
     printList(inputElement, 'li', salesList); // takes strings and displays it inside child li elements
     console.log(salesList);
   }
-  var salesTotal = `Total: ${cookieArray.reduce(getTotal)} cookies`; // creates string with total number of cookies sold
+  var salesTotal = `Total: ${cookieArray.reduce(getSum)} cookies`; // creates string with total number of cookies sold
   printList(inputElement, 'li', salesTotal); // takes strings and displays it inside child li elements
   console.log(salesTotal);
 }
