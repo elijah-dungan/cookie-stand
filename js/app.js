@@ -2,46 +2,46 @@
 
 /* --Function Declarations-- */
 
-function getMean(a, b) { // gets mean from 2 input variables
+function getMean(a, b) { // gets average from 2 integers
   var sum = (a + b)/2;
   console.log(sum);
   return sum;
 }
 
-function getTotal(total, num) { // gets average from an array
+function getTotal(total, num) { // gets average from an array of integers
   var sumTotal = total + num;
   console.log(sumTotal);
   return sumTotal;
 }
 
-function makeRandom(inputInt) { // gets random number from 1 input variable
+function makeRandom(inputInt) { // gets random number from 1 integer
   var num = Math.floor(Math.random() * Math.floor(inputInt));
   console.log(num);
   return num;
 }
 
-function printList(inputElement, generateEl, inputList) { // generates element using 3 variables
-  var makeList = document.getElementById(inputElement);
-  var liEl = document.createElement(generateEl);
-  liEl.textContent = inputList;
-  makeList.appendChild(liEl);
-  console.log(inputList);
+function printList(inputParentEl, outputChildEl, inputTextContent) { // creates a child element and inputs text within the child element based on an element ID, tag name of child, and input text
+  var getParentEl = document.getElementById(inputParentEl);
+  var newChildEl = document.createElement(outputChildEl);
+  newChildEl.textContent = inputTextContent;
+  getParentEl.appendChild(newChildEl);
+  console.log(inputTextContent);
 }
 
-function generateList(inputElement, inputNum1, inputNum2, inputNum3) { // generates a list of random cookies based on 3 variables
+function generateList(inputElement, inputNum1, inputNum2, inputNum3) { // generates a list of random cookies based on an element ID and 3 integers
   var cookieArray = []; // stores cookies sold
-  var times = ['6am:', '7am:', '8am:', '9am:', '10am:', '11am:', '12pm:', '1pm:', '2pm:', '3pm:', '4pm:', '5pm:', '6pm:', '7pm:', '8pm:'];
-  for(var i = 0; i < times.length; i ++) { // loop that generates simulated sales and pushes into cookieArray
-    cookieArray.push(Math.round(makeRandom(getMean(inputNum1, inputNum2)) * inputNum3));
+  var timesArray = ['6am:', '7am:', '8am:', '9am:', '10am:', '11am:', '12pm:', '1pm:', '2pm:', '3pm:', '4pm:', '5pm:', '6pm:', '7pm:', '8pm:']; // array of times from 6am to 8pm
+  for(var i = 0; i < timesArray.length; i ++) { // for loop that generates simulated sales and pushes into cookieArray
+    cookieArray.push(Math.round(makeRandom(getMean(inputNum1, inputNum2)) * inputNum3)); // gets average from inputNum 1 and 2, multiplies product by input 3, generates random number to create bell curve, rounds result to nearest whole number, pushes resulting number into cookieArray
   }
-  for(var j = 0; j < times.length; j ++) { // loop that generates sales list
-    var displayList = `${times[j]} ${cookieArray[j]} cookies`; // displays time, number of sales, and cookies sold in a string
-    printList(inputElement, 'li', displayList);
-    console.log(displayList);
+  for(var j = 0; j < timesArray.length; j ++) { // for loop that generates a sales list based on cookieArray and timesArray
+    var salesList = `${timesArray[j]} ${cookieArray[j]} cookies`; // creates string with time, number of sales, and number of cookies sold
+    printList(inputElement, 'li', salesList); // takes strings and displays it inside child li elements
+    console.log(salesList);
   }
-  var displayTotal = `Total: ${cookieArray.reduce(getTotal)} cookies`; // displays total number of cookies sold in a string
-  printList(inputElement, 'li', displayTotal);
-  console.log(displayTotal);
+  var salesTotal = `Total: ${cookieArray.reduce(getTotal)} cookies`; // creates string with total number of cookies sold
+  printList(inputElement, 'li', salesTotal); // takes strings and displays it inside child li elements
+  console.log(salesTotal);
 }
 
 /* --Function Declarations-- */
@@ -89,3 +89,7 @@ var alki = {
 };
 
 /* --Object Literals-- */
+
+
+
+
