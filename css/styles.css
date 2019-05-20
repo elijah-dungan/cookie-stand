@@ -21,7 +21,7 @@ a {
     text-align: right;
 }
 nav {
-    padding: 0 3% 2% 3%;
+    padding: 0 3% 0.5% 3%;
     margin: 0;
 }
 nav ul{
@@ -52,7 +52,7 @@ nav ul li {
     margin: 0;
 }
 #logo {
-    width: 30px;
+    width: 50px;
     padding: 0;
 }
 #login-area {
@@ -127,7 +127,7 @@ header {
 main {
     margin: 0;
     overflow-y: scroll;
-    height: 73vh;
+    height: 72vh;
 }
 section {
     display: table;
@@ -136,7 +136,7 @@ section {
 h2 {
     font-size: 2em;
     position: relative;
-    color: rgb(255, 235, 0);
+    color: rgb(235, 235, 0);
     z-index: 999;
     text-align: center;
     margin: 0;
@@ -148,6 +148,23 @@ h2 {
     font-weight: bolder;
     position: relative;
     z-index: 999;
+}
+.flex-box-container-three {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.bottom-section {
+    text-align: center;
+    margin: 0 0 0.5% 0;
+}
+.hours-locations {
+    font-size:1.2em;
+}
+.highlight {
+    color: rgb(235, 235, 0);
+    font-weight: bolder;
 }
 footer {
     text-align: center;

@@ -31,10 +31,10 @@ function printList(inputElement, generateEl, inputList) { // generates element u
 function generateList(inputElement, inputNum1, inputNum2, inputNum3) { // generates a list of random cookies based on 3 variables
   var cookieArray = []; // stores cookies sold
   var times = ['6am:', '7am:', '8am:', '9am:', '10am:', '11am:', '12pm:', '1pm:', '2pm:', '3pm:', '4pm:', '5pm:', '6pm:', '7pm:', '8pm:'];
-  for(var i = 0; i <= times.length; i ++) { // loop that generates simulated sales and pushes into cookieArray
+  for(var i = 0; i < times.length; i ++) { // loop that generates simulated sales and pushes into cookieArray
     cookieArray.push(Math.round(makeRandom(getMean(inputNum1, inputNum2)) * inputNum3));
   }
-  for(var j = 0; j <= times.length; j ++) { // loop that generates sales list
+  for(var j = 0; j < times.length; j ++) { // loop that generates sales list
     var displayList = `${times[j]} ${cookieArray[j]} cookies`; // displays time, number of sales, and cookies sold in a string
     printList(inputElement, 'li', displayList);
     console.log(displayList);
