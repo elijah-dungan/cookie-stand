@@ -25,7 +25,6 @@ function printList(inputParentEl, outputChildEl, inputTextContent) { // creates 
   var newChildEl = document.createElement(outputChildEl); // creates child element
   newChildEl.textContent = inputTextContent; // adds text to the child element
   getParentEl.appendChild(newChildEl); // appends the child element to the parent
-  console.log(inputTextContent);
 }
 
 function generateList(inputElement, inputNum1, inputNum2, inputNum3) { // generates a list of random cookies based on an element ID and 3 integers
