@@ -33,9 +33,7 @@ function generateList(inputElement, inputNum1, inputNum2, inputNum3) { // genera
   var timesArray = ['6am:', '7am:', '8am:', '9am:', '10am:', '11am:', '12pm:', '1pm:', '2pm:', '3pm:', '4pm:', '5pm:', '6pm:', '7pm:', '8pm:']; // array of times from 6am to 8pm
   for(var i = 0; i < timesArray.length; i ++) { // for loop that generates simulated sales and pushes into cookieArray
     cookieArray.push(Math.round(makeRandom(getMean(inputNum1, inputNum2)) * inputNum3)); // gets average from inputNum 1 and 2, multiplies product by input 3, generates random number to create bell curve, rounds result to nearest whole number, pushes resulting number into cookieArray
-  }
-  for(var j = 0; j < timesArray.length; j ++) { // for loop that generates a sales list based on cookieArray and timesArray
-    var salesList = `${timesArray[j]} ${cookieArray[j]} cookies`; // creates string with time, number of sales, and number of cookies sold
+    var salesList = `${timesArray[i]} ${cookieArray[i]} cookies`; // creates string with time, number of sales, and number of cookies sold
     printList(inputElement, 'li', salesList); // takes strings and displays it inside child li elements
     console.log(salesList);
   }
