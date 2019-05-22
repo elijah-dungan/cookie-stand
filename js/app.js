@@ -5,16 +5,16 @@
 var allStores = [];
 var allSales = [];
 
-/* --Global Array-- */
+/* --Global Arrays-- */
 
-/* --Global Functions-- */
+/* --Functions-- */
 
 function getSum(total, nextNum) { // gets sum from two numbers, used with reduce() to get total sum from an array
   var sumTotal = total + nextNum;
   return sumTotal;
 }
 
-//code from MDN: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random"
+// code from MDN: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random"
 function makeRandom(minCust, maxCust) { // gets random number from a range of two numbers
   minCust = Math.ceil(minCust);
   maxCust = Math.floor(maxCust);
@@ -28,11 +28,7 @@ function printList(inputParentEl, outputChildEl, inputTextContent) { // creates 
   getParentEl.appendChild(newChildEl); // appends the child element to the parent
 }
 
-/* --Global Functions-- */
-
-/* --Constructor Function-- */
-
-function StoreLocation(elementId, minCustPerHour, maxCustPerHour, averageCookieSale) {
+function StoreByLocation(elementId, minCustPerHour, maxCustPerHour, averageCookieSale) {
   this.elementId = elementId;
   this.minCustPerHour = minCustPerHour;
   this.maxCustPerHour = maxCustPerHour;
@@ -42,11 +38,11 @@ function StoreLocation(elementId, minCustPerHour, maxCustPerHour, averageCookieS
   this.listPerHour = [];
 }
 
-/* --Constructor Function-- */
+/* --Functions-- */
 
-/* --Prototype-- */
+/* --Prototypes-- */
 
-StoreLocation.prototype.render = function() { // generates a list of random cookies based on a parent element ID and 3 numbers
+StoreByLocation.prototype.render = function() { // generates a list of random cookies based on a parent element ID and 3 numbers
   console.log(`elementId: ${this.elementId}, minCustPerHour: ${this.minCustPerHour}, maxCustPerHour: ${this.maxCustPerHour}, averageCookieSale: ${this.averageCookieSale}`);
   for(var i = 0; i < this.times.length; i ++) { // for loop that generates simulated sales and pushes into salesArray
     var randomNum = makeRandom(this.minCustPerHour, this.maxCustPerHour);
@@ -64,15 +60,15 @@ StoreLocation.prototype.render = function() { // generates a list of random cook
   console.log(`listTotal: ${listTotal}`);
 };
 
-/* --Prototype-- */
+/* --Prototypes-- */
 
 /* --Instances-- */
 
-var firstAndPike = new StoreLocation('first-and-pike', '23', '65', '6.3');
-var seaTacAirport = new StoreLocation('sea-tac-airport', '3', '24', '1.2');
-var seattleCenter = new StoreLocation('seattle-center', '11', '38', '3.7');
-var capitolHill = new StoreLocation('capitol-hill', '20', '38', '2.3');
-var alki = new StoreLocation('alki', '2', '16', '4.6');
+var firstAndPike = new StoreByLocation('first-and-pike', '23', '65', '6.3');
+var seaTacAirport = new StoreByLocation('sea-tac-airport', '3', '24', '1.2');
+var seattleCenter = new StoreByLocation('seattle-center', '11', '38', '3.7');
+var capitolHill = new StoreByLocation('capitol-hill', '20', '38', '2.3');
+var alki = new StoreByLocation('alki', '2', '16', '4.6');
 
 /* --Instances-- */
 
@@ -88,5 +84,3 @@ alki.render();
 
 console.log(allStores);
 console.log(allSales);
-
-
