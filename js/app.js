@@ -40,26 +40,31 @@ function StoreLocation(elementId, minCustPerHour, maxCustPerHour, averageCookieS
   this.times = ['6am:', '7am:', '8am:', '9am:', '10am:', '11am:', '12pm:', '1pm:', '2pm:', '3pm:', '4pm:', '5pm:', '6pm:', '7pm:', '8pm:']; // array of times from 6am to 8pm
   this.cookiesSoldPerHour = []; // stores cookies sold per hour
   this.listPerHour = [];
-  this.render = function() { // generates a list of random cookies based on a parent element ID and 3 numbers
-    console.log(`elementId: ${this.elementId}, minCustPerHour: ${this.minCustPerHour}, maxCustPerHour: ${this.maxCustPerHour}, averageCookieSale: ${this.averageCookieSale}`);
-    for(var i = 0; i < this.times.length; i ++) { // for loop that generates simulated sales and pushes into salesArray
-      var randomNum = makeRandom(this.minCustPerHour, this.maxCustPerHour);
-      this.cookiesSoldPerHour.push(Math.round(randomNum * this.averageCookieSale)); // gets randomly generated number from minCustPerHour and maxCustPerHour, multiplies this number by meanCookieSale, pushes number into salesArray
-      var salesList = `${this.times[i]} ${this.cookiesSoldPerHour[i]} cookies`; // creates string with time, number of sales, and number of cookies sold
-      this.listPerHour.push(salesList);
-      printList(this.elementId, 'li', salesList); // takes strings and displays it inside child li elements
-      console.log(`randomNum: ${randomNum}, cookiesSoldPerHour: ${this.cookiesSoldPerHour[i]}`);
-    }
-    var listTotal = `Total: ${this.cookiesSoldPerHour.reduce(getSum)} cookies`; // creates string with total number of cookies sold
-    printList(this.elementId, 'li', listTotal); // takes strings and displays it inside child li elements
-    allSales.push(this.cookiesSoldPerHour); // stores salesArray into an array
-    allStores.push(this); // stores instance into an array
-    console.log(`listPerHour: ${this.listPerHour}`);
-    console.log(`listTotal: ${listTotal}`);
-  };
 }
 
 /* --Constructor Function-- */
+
+/* --Prototype-- */
+
+StoreLocation.prototype.render = function() { // generates a list of random cookies based on a parent element ID and 3 numbers
+  console.log(`elementId: ${this.elementId}, minCustPerHour: ${this.minCustPerHour}, maxCustPerHour: ${this.maxCustPerHour}, averageCookieSale: ${this.averageCookieSale}`);
+  for(var i = 0; i < this.times.length; i ++) { // for loop that generates simulated sales and pushes into salesArray
+    var randomNum = makeRandom(this.minCustPerHour, this.maxCustPerHour);
+    this.cookiesSoldPerHour.push(Math.round(randomNum * this.averageCookieSale)); // gets randomly generated number from minCustPerHour and maxCustPerHour, multiplies this number by meanCookieSale, pushes number into salesArray
+    var salesList = `${this.times[i]} ${this.cookiesSoldPerHour[i]} cookies`; // creates string with time, number of sales, and number of cookies sold
+    this.listPerHour.push(salesList);
+    printList(this.elementId, 'li', salesList); // takes strings and displays it inside child li elements
+    console.log(`randomNum: ${randomNum}, cookiesSoldPerHour: ${this.cookiesSoldPerHour[i]}`);
+  }
+  var listTotal = `Total: ${this.cookiesSoldPerHour.reduce(getSum)} cookies`; // creates string with total number of cookies sold
+  printList(this.elementId, 'li', listTotal); // takes strings and displays it inside child li elements
+  allSales.push(this.cookiesSoldPerHour); // stores salesArray into an array
+  allStores.push(this); // stores instance into an array
+  console.log(`listPerHour: ${this.listPerHour}`);
+  console.log(`listTotal: ${listTotal}`);
+};
+
+/* --Prototype-- */
 
 /* --Instances-- */
 
