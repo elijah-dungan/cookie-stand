@@ -1,6 +1,6 @@
 'use strict';
 
-/* --Function Declarations-- */
+/* --Global Function Declarations-- */
 
 function getSum(total, nextNum) { // gets sum from two numbers, used with reduce() to get total sum from an array
   var sumTotal = total + nextNum;
@@ -21,82 +21,43 @@ function printList(inputParentEl, outputChildEl, inputTextContent) { // creates 
   getParentEl.appendChild(newChildEl); // appends the child element to the parent
 }
 
-function generateList(inputElement, inputNum1, inputNum2, inputNum3) { // generates a list of random cookies based on an element ID and 3 integers
-  var cookieArray = []; // stores cookies sold
-  var timesArray = ['6am:', '7am:', '8am:', '9am:', '10am:', '11am:', '12pm:', '1pm:', '2pm:', '3pm:', '4pm:', '5pm:', '6pm:', '7pm:', '8pm:']; // array of times from 6am to 8pm
-  for(var i = 0; i < timesArray.length; i ++) { // for loop that generates simulated sales and pushes into cookieArray
-    cookieArray.push(Math.round(makeRandom(inputNum1, inputNum2) * inputNum3)); // gets average from inputNum 1 and 2, multiplies product by input 3, generates random number to create bell curve, rounds result to nearest whole number, pushes resulting number into cookieArray
-    var salesList = `${timesArray[i]} ${cookieArray[i]} cookies`; // creates string with time, number of sales, and number of cookies sold
-    printList(inputElement, 'li', salesList); // takes strings and displays it inside child li elements
-    console.log(salesList);
-  }
-  var salesTotal = `Total: ${cookieArray.reduce(getSum)} cookies`; // creates string with total number of cookies sold
-  printList(inputElement, 'li', salesTotal); // takes strings and displays it inside child li elements
-  // wont work unless prototype and using constructor function // this.salesArray.push(cookieArray);
-  console.log(salesTotal);
-  console.log(cookieArray);
+/* --Global Function Declarations-- */
+
+/* --Constructor Function-- */
+
+function StoreLocation(elementId, minCustPerHour, maxCustPerHour, meanCookieSale) {
+  this.elementId = elementId;
+  this.minCustPerHour = minCustPerHour;
+  this.maxCustPerHour = maxCustPerHour;
+  this.meanCookieSale = meanCookieSale;
+  this.salesArray = []; // stores cookies sold
+  this.timesArray = ['6am:', '7am:', '8am:', '9am:', '10am:', '11am:', '12pm:', '1pm:', '2pm:', '3pm:', '4pm:', '5pm:', '6pm:', '7pm:', '8pm:']; // array of times from 6am to 8pm
+  this.render = function() { // generates a list of random cookies based on a parent element ID and 3 numbers
+    for(var i = 0; i < this.timesArray.length; i ++) { // for loop that generates simulated sales and pushes into salesArray
+      this.salesArray.push(Math.round(makeRandom(this.minCustPerHour, this.maxCustPerHour) * this.meanCookieSale)); // gets randomly generated number from minCustPerHour and maxCustPerHour, multiplies this number by meanCookieSale, pushes number into salesArray
+      var salesList = `${this.timesArray[i]} ${this.salesArray[i]} cookies`; // creates string with time, number of sales, and number of cookies sold
+      printList(this.elementId, 'li', salesList); // takes strings and displays it inside child li elements
+      console.log(salesList);
+    }
+    var salesTotal = `Total: ${this.salesArray.reduce(getSum)} cookies`; // creates string with total number of cookies sold
+    printList(this.elementId, 'li', salesTotal); // takes strings and displays it inside child li elements
+    // wont work unless prototype and using constructor function // this.salesArray.push(cookieArray);
+    console.log(salesTotal);
+    console.log(this.salesArray);
+  };
 }
 
-/* --Function Declarations-- */
+/* --Constructor Function-- */
 
-/* --Object Literals-- */
+/* --Constructor Instances-- */
 
-var firstAndPike = {
-  elementId: 'first-and-pike',
-  minCustPerHour: 23,
-  maxCustPerHour: 65,
-  meanCookieSale: 6.3,
-  salesArray: [],
-  render: function() {
-    generateList(this.elementId, this.minCustPerHour, this.maxCustPerHour, this.meanCookieSale);
-  }
-};
+var firstAndPike = new StoreLocation('first-and-pike', '23', '65', '6.3');
+var seaTacAirport = new StoreLocation('sea-tac-airport', '3', '24', '1.2');
+var seattleCenter = new StoreLocation('seattle-center', '11', '38', '3.7');
+var capitolHill = new StoreLocation('capitol-hill', '20', '38', '2.3');
+var alki = new StoreLocation('alki', '2', '16', '4.6');
 
-var seaTacAirport = {
-  elementId: 'sea-tac-airport',
-  minCustPerHour: 3,
-  maxCustPerHour: 24,
-  meanCookieSale: 1.2,
-  salesArray: [],
-  render: function() {
-    generateList(this.elementId, this.minCustPerHour, this.maxCustPerHour, this.meanCookieSale);
-  }
-};
-
-var seattleCenter = {
-  elementId: 'seattle-center',
-  minCustPerHour: 23,
-  maxCustPerHour: 65,
-  meanCookieSale: 6.3,
-  salesArray: [],
-  render: function() {
-    generateList(this.elementId, this.minCustPerHour, this.maxCustPerHour, this.meanCookieSale);
-  }
-};
-
-var capitolHill = {
-  elementId: 'capitol-hill',
-  minCustPerHour: 20,
-  maxCustPerHour: 38,
-  meanCookieSale: 2.3,
-  salesArray: [],
-  render: function() {
-    generateList(this.elementId, this.minCustPerHour, this.maxCustPerHour, this.meanCookieSale);
-  }
-};
-
-var alki = {
-  elementId: 'alki',
-  minCustPerHour: 2,
-  maxCustPerHour: 16,
-  meanCookieSale: 4.6,
-  salesArray: [],
-  render: function() {
-    generateList(this.elementId, this.minCustPerHour, this.maxCustPerHour, this.meanCookieSale);
-  }
-};
-
-/* --Object Literals-- */
+/* --Constructor Instances-- */
 
 /* --Method Calls-- */
 
@@ -105,8 +66,5 @@ seaTacAirport.render();
 seattleCenter.render();
 capitolHill.render();
 alki.render();
-
-/* --Method Calls-- */
-
 
 
