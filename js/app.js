@@ -2,84 +2,110 @@
 
 /* --Global Variables */
 
-var tableBodyEl = document.getElementById('sales-table');
+var tableBodyEl = document.getElementById('sales-table'); // stores reference to table element id
 
 /* --Global Arrays-- */
 
 var times = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm']; // array of times from 6am to 8pm
 var allSales = []; // stores all cookie sold per hour from all stores into one array
+var crossTotals = []; // stores totals per hour across stores
 
 /* --Global Arrays-- */
 
 /* --Functions-- */
 
-function getSum(total, nextNum) { // gets sum from two numbers, used with reduce() to get total sum from an array
-  var sumTotal = total + nextNum;
-  return sumTotal;
+function getSum(total, currentNum) { // gets sum from two numbers, used with reduce() to get total sum from an array
+  var sumTotal = total + currentNum; // simple addition equation
+  return sumTotal; // returns the sum
 }
 
-// code from MDN: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random"
+// code from MDN: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random'
 function makeRandom(minCust, maxCust) { // gets random number from a range of two numbers
-  minCust = Math.ceil(minCust);
-  maxCust = Math.floor(maxCust);
-  return Math.floor(Math.random() * (maxCust - minCust + 1)) + minCust;
+  minCust = Math.ceil(minCust); // rounds minCust up to the nearest whole number
+  maxCust = Math.floor(maxCust); // rounds maxCust down to the nearest whole number
+  return Math.floor(Math.random() * (maxCust - minCust + 1)) + minCust; // generates random number based on minCust/maxCust
 }
 
-function renderTableHeader() {
-  tableBodyEl;
-  var tableRowEl = document.createElement('tr');
-  tableBodyEl.appendChild(tableRowEl);
-  var tableHeaderEl = document.createElement('th');
-  tableHeaderEl.textContent = 'Name';
-  tableRowEl.appendChild(tableHeaderEl);
-  for(var i = 0; i < times.length; i ++) {
-    var tableHeaderEl = document.createElement('th');
-    tableHeaderEl.textContent = times[i];
-    tableRowEl.appendChild(tableHeaderEl);
+function renderTableHeader() { // renders table header to the DOM
+  tableBodyEl; // gets the location of table body element by id
+  var tableRowEl = document.createElement('tr'); // creates a table row
+  tableBodyEl.appendChild(tableRowEl); // appends the table row to the table body
+  var tableHeaderEl = document.createElement('th'); // creates a table header
+  tableHeaderEl.textContent = 'Name'; // adds 'Name' to the table header
+  tableRowEl.appendChild(tableHeaderEl); // appends the table header to the table row
+  for(var i = 0; i < times.length; i ++) { // a for loop that creates the bulk of the header columns
+    tableHeaderEl = document.createElement('th'); // creates a table header
+    tableHeaderEl.textContent = times[i]; // adds time from times array to the table header
+    tableRowEl.appendChild(tableHeaderEl); // appends the table header to the table row
   }
-  var tableHeaderEl = document.createElement('th');
-  tableHeaderEl.textContent = 'Total';
-  tableRowEl.appendChild(tableHeaderEl);
+  tableHeaderEl = document.createElement('th'); // creates a table header
+  tableHeaderEl.textContent = 'Total'; // adds 'Total' to the table header
+  tableRowEl.appendChild(tableHeaderEl); // appends the table header to the table row
 }
 
-function Store(name, minCustPerHour, maxCustPerHour, averageCookieSale) {
-  this.name = name;
-  this.minCustPerHour = minCustPerHour;
-  this.maxCustPerHour = maxCustPerHour;
-  this.averageCookieSale = averageCookieSale;
-  this.cookiesSoldPerHour = []; // stores cookies sold per hour
+function renderCrossTotals() { // renders the totals across stores using an array within an array
+  tableBodyEl; // gets the location of table body element by id
+  var tableRowEl = document.createElement('tr'); // creates a table row
+  tableBodyEl.appendChild(tableRowEl); // appends the table row to the table body
+  var tableHeaderEl = document.createElement('th'); // creates a table header
+  tableHeaderEl.textContent = 'Total'; // adds store name to the table data
+  tableRowEl.appendChild(tableHeaderEl); // appends the table data to the table row
+  var tableDataEl = document.createElement('th'); // creates a table header
+  for(var column = 0; column < allSales[0].length; column ++) { // a for loop that loops horizontally, selects each column of the arrays
+    var verticalArray = [];
+    for(var i = 0; i < allSales.length; i ++) { // a for loop that loops vertically down the column
+      verticalArray.push(allSales[i][column]); // pushes the numbers from the column into verticalArray
+    }
+    var verticalTotal = verticalArray.reduce(getSum); // gets sum from verticalArray
+    crossTotals.push(verticalTotal); // pushes each sum into crossTotals global array
+    tableDataEl = document.createElement('td'); // creates a table data
+    tableDataEl.textContent = verticalTotal; // adds cookiesSoldPerHour to table data
+    tableRowEl.appendChild(tableDataEl); // appends the table data to the table row
+  }
+  var finalTotal = crossTotals.reduce(getSum); // gets the final combined total of all cookies sold
+  tableDataEl = document.createElement('td'); // creates a table data
+  tableDataEl.textContent = finalTotal; // adds cookiesSoldPerHour to table data
+  tableRowEl.appendChild(tableDataEl); // appends the table data to the table row
+}
+
+function Store(nameLocation, minCustPerHour, maxCustPerHour, averageCookieSale) { // constructor function, acts as a template for each store
+  this.nameLocation = nameLocation; // the name or location of each store
+  this.minCustPerHour = minCustPerHour; // minimum customers per hour
+  this.maxCustPerHour = maxCustPerHour; // maximum customers per hour
+  this.averageCookieSale = averageCookieSale; // average cookie sales per customer
+  this.cookiesSoldPerHour = []; // array that stores cookies sold per hour
 }
 
 /* --Functions-- */
 
 /* --Prototypes-- */
 
-Store.prototype.renderTableData = function() { // generates a list of random cookies based on a parent element ID and 3 numbers
-  console.log(`elementId: ${this.storeLocation}, minCustPerHour: ${this.minCustPerHour}, maxCustPerHour: ${this.maxCustPerHour}, averageCookieSale: ${this.averageCookieSale}`);
-  var listTableHeaders = document.getElementsByTagName('th');
-  if(listTableHeaders.length < 1) {
-    renderTableHeader();
+Store.prototype.renderTableData = function() { // renders table data to the DOM
+  console.log(`Name/Location: ${this.nameLocation}, minCustPerHour: ${this.minCustPerHour}, maxCustPerHour: ${this.maxCustPerHour}, averageCookieSale: ${this.averageCookieSale}`);
+  var listTableHeaders = document.getElementsByTagName('th'); // returns a node list of table headers
+  if(listTableHeaders.length < 1) { // checks to see if a header already exists
+    renderTableHeader(); // renders a header if no header exists
   }
-  tableBodyEl;
-  var tableRowEl = document.createElement('tr');
-  tableBodyEl.appendChild(tableRowEl);
-  var tableDataEl = document.createElement('td');
-  tableDataEl.textContent = this.name;
-  tableRowEl.appendChild(tableDataEl);
-  for(var i = 0; i < times.length; i ++) { // for loop that generates simulated sales and pushes into salesArray
-    var randomNum = makeRandom(this.minCustPerHour, this.maxCustPerHour);
-    this.cookiesSoldPerHour.push(Math.round(randomNum * this.averageCookieSale)); // gets randomly generated number from minCustPerHour and maxCustPerHour, multiplies this number by meanCookieSale, pushes number into salesArray
-    tableDataEl = document.createElement('td');
-    tableDataEl.textContent = this.cookiesSoldPerHour[i];
-    tableRowEl.appendChild(tableDataEl);
+  tableBodyEl; // gets the location of table body element by id
+  var tableRowEl = document.createElement('tr'); // creates a table row
+  tableBodyEl.appendChild(tableRowEl); // appends the table row to the table body
+  var tableDataEl = document.createElement('td'); // creates a table data
+  tableDataEl.textContent = this.nameLocation; // adds store name to the table data
+  tableRowEl.appendChild(tableDataEl); // appends the table data to the table row
+  for(var i = 0; i < times.length; i ++) { // a for loop that generates simulated cookies sold and pushes these numbers into cookiesSoldPerHour array
+    var randomNum = makeRandom(this.minCustPerHour, this.maxCustPerHour); // stores the generated random number from minCust and MaxCust into a variable
+    this.cookiesSoldPerHour.push(Math.round(randomNum * this.averageCookieSale)); // multiplies the random number by the average CookieSale, pushes this number into the cookiesSoldPerHour array
+    tableDataEl = document.createElement('td'); // creates a table data
+    tableDataEl.textContent = this.cookiesSoldPerHour[i]; // adds cookiesSoldPerHour to table data
+    tableRowEl.appendChild(tableDataEl); // appends the table data to the table row
     console.log(`randomNum: ${randomNum}, cookiesSoldPerHour: ${this.cookiesSoldPerHour[i]}`);
   }
-  var total = this.cookiesSoldPerHour.reduce(getSum);
-  tableDataEl = document.createElement('td');
-  tableDataEl.textContent = total;
-  tableRowEl.appendChild(tableDataEl);
-  allSales.push(this.cookiesSoldPerHour); // stores salesArray into an array
-  console.log(`listTotal: ${total}`);
+  var totalCookiesSold = this.cookiesSoldPerHour.reduce(getSum); // sums the total amount of cookiesSoldPerHour
+  tableDataEl = document.createElement('td'); // creates a table data
+  tableDataEl.textContent = totalCookiesSold; // adds totalCookiesSold to the table data
+  tableRowEl.appendChild(tableDataEl); // appends the table data to the table row
+  allSales.push(this.cookiesSoldPerHour); // stores cookiesSoldPerHour into a global sales array
+  console.log(`totalCookiesSold: ${totalCookiesSold}`);
 };
 
 /* --Prototypes-- */
@@ -104,4 +130,11 @@ alki.renderTableData();
 
 /* --Method Calls-- */
 
+/* --Function Calls-- */
+
+renderCrossTotals();
+
+/* --Function Calls-- */
+
 console.log(allSales);
+console.log(crossTotals);
