@@ -49,10 +49,10 @@ function renderHourlyTotals() { // renders the totals across stores using an arr
   tableHeaderEl.textContent = 'Total'; // adds store name to the table header
   tableRowEl.appendChild(tableHeaderEl); // appends the table header to the table row
   var tableDataEl = document.createElement('th'); // creates a table header
-  for(var column = 0; column < allSales[0].length; column ++) { // a for loop that loops horizontally, selecting each column of the allSales array
+  for(var x = 0; x < allSales[0].length; x ++) { // a for loop that loops vertically, selecting each column
     var verticalArray = []; // stores numbers from vertical loop
-    for(var i = 0; i < allSales.length; i ++) { // a for loop that loops vertically down the column
-      verticalArray.push(allSales[i][column]); // pushes the numbers from the column into verticalArray
+    for(var y = 0; y < allSales.length; y ++) { // a for loop that loops horizontally down a column
+      verticalArray.push(allSales[y][x]); // pushes the numbers from the column into verticalArray
     }
     var verticalTotal = verticalArray.reduce(getSum); // gets sum from verticalArray
     hourlyTotals.push(verticalTotal); // pushes each sum into crossTotals global array
