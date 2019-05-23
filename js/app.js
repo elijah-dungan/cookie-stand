@@ -46,8 +46,8 @@ function renderHourlyTotals() { // renders the totals across stores using an arr
   var tableRowEl = document.createElement('tr'); // creates a table row
   tableBodyEl.appendChild(tableRowEl); // appends the table row to the table body
   var tableHeaderEl = document.createElement('th'); // creates a table header
-  tableHeaderEl.textContent = 'Total'; // adds store name to the table data
-  tableRowEl.appendChild(tableHeaderEl); // appends the table data to the table row
+  tableHeaderEl.textContent = 'Total'; // adds store name to the table header
+  tableRowEl.appendChild(tableHeaderEl); // appends the table header to the table row
   var tableDataEl = document.createElement('th'); // creates a table header
   for(var column = 0; column < allSales[0].length; column ++) { // a for loop that loops horizontally, selecting each column of the allSales array
     var verticalArray = []; // stores numbers from vertical loop
@@ -56,13 +56,13 @@ function renderHourlyTotals() { // renders the totals across stores using an arr
     }
     var verticalTotal = verticalArray.reduce(getSum); // gets sum from verticalArray
     hourlyTotals.push(verticalTotal); // pushes each sum into crossTotals global array
-    tableDataEl = document.createElement('td'); // creates a table data
-    tableDataEl.textContent = verticalTotal; // adds verticalTotal to table data
+    tableDataEl = document.createElement('td'); // creates table data
+    tableDataEl.textContent = verticalTotal; // adds verticalTotal to the table data
     tableRowEl.appendChild(tableDataEl); // appends the table data to the table row
   }
   var finalTotal = hourlyTotals.reduce(getSum); // gets the final combined total of all cookies sold
-  tableDataEl = document.createElement('td'); // creates a table data
-  tableDataEl.textContent = finalTotal; // adds finalTotal to table data
+  tableDataEl = document.createElement('td'); // creates table data
+  tableDataEl.textContent = finalTotal; // adds finalTotal to the table data
   tableRowEl.appendChild(tableDataEl); // appends the table data to the table row
   console.log(`finalTotal: ${finalTotal}`);
 }
@@ -86,19 +86,19 @@ Store.prototype.renderTableData = function() { // renders table data to the DOM
   tableBodyEl; // gets the location of table body element by id
   var tableRowEl = document.createElement('tr'); // creates a table row
   tableBodyEl.appendChild(tableRowEl); // appends the table row to the table body
-  var tableDataEl = document.createElement('td'); // creates a table data
+  var tableDataEl = document.createElement('td'); // creates table data
   tableDataEl.textContent = this.nameLocation; // adds store name to the table data
   tableRowEl.appendChild(tableDataEl); // appends the table data to the table row
   for(var i = 0; i < times.length; i ++) { // a for loop that generates simulated cookies sold and pushes these numbers into cookiesSoldPerHour array
     var randomNum = makeRandom(this.minCustPerHour, this.maxCustPerHour); // stores the generated random number from minCust and MaxCust into a variable
     this.cookiesSoldPerHour.push(Math.round(randomNum * this.averageCookieSale)); // multiplies the random number by the average CookieSale, pushes this number into the cookiesSoldPerHour array
-    tableDataEl = document.createElement('td'); // creates a table data
-    tableDataEl.textContent = this.cookiesSoldPerHour[i]; // adds cookiesSoldPerHour to table data
+    tableDataEl = document.createElement('td'); // creates table data
+    tableDataEl.textContent = this.cookiesSoldPerHour[i]; // adds cookiesSoldPerHour to the table data
     tableRowEl.appendChild(tableDataEl); // appends the table data to the table row
     console.log(`randomNum: ${randomNum}, cookiesSoldPerHour: ${this.cookiesSoldPerHour[i]}`);
   }
   var locationTotal = this.cookiesSoldPerHour.reduce(getSum); // sums the total amount of cookiesSoldPerHour
-  tableDataEl = document.createElement('td'); // creates a table data
+  tableDataEl = document.createElement('td'); // creates table data
   tableDataEl.textContent = locationTotal; // adds totalCookiesSold to the table data
   tableRowEl.appendChild(tableDataEl); // appends the table data to the table row
   allSales.push(this.cookiesSoldPerHour); // stores cookiesSoldPerHour into a global sales array
