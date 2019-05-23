@@ -47,9 +47,10 @@ function renderCrossTotals() {
   tableBodyEl; // gets the location of table body element by id
   var tableRowEl = document.createElement('tr'); // creates a table row
   tableBodyEl.appendChild(tableRowEl); // appends the table row to the table body
-  var tableDataEl = document.createElement('td'); // creates a table data
-  tableDataEl.textContent = 'Total'; // adds store name to the table data
-  tableRowEl.appendChild(tableDataEl); // appends the table data to the table row
+  var tableHeaderEl = document.createElement('th'); // creates a table header
+  tableHeaderEl.textContent = 'Total'; // adds store name to the table data
+  tableRowEl.appendChild(tableHeaderEl); // appends the table data to the table row
+  var tableDataEl = document.createElement('th'); // creates a table header
   for(var column = 0; column < allSales[0].length; column ++) {
     var verticalArray = [];
     for(var i = 0; i < allSales.length; i ++) {
