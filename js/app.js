@@ -7,7 +7,6 @@ var tableBodyEl = document.getElementById('sales-table'); // stores reference to
 /* --Global Arrays-- */
 
 var times = ['7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm']; // array of times from 6am to 8pm
-var allStores = [];
 var allSales = []; // stores all cookies sold per hour by location (arrays within an array)
 var hourlyTotals = []; // stores totals per hour across stores
 
@@ -103,7 +102,6 @@ Store.prototype.renderTableData = function() { // renders table data to the DOM
   tableDataEl.textContent = locationTotal; // adds totalCookiesSold to the table data
   tableRowEl.appendChild(tableDataEl); // appends the table data to the table row
   allSales.push(this.cookiesSoldPerHour); // stores cookiesSoldPerHour into a global sales array
-  allStores.push(this);
   console.log(`locationTotal: ${locationTotal}`);
 };
 
