@@ -15,11 +15,11 @@ var crossTotals = []; // stores totals per hour across stores
 /* --Functions-- */
 
 function getSum(total, currentNum) { // gets sum from two numbers, used with reduce() to get total sum from an array
-  var sumTotal = total + currentNum;
-  return sumTotal;
+  var sumTotal = total + currentNum; // simple addition equation
+  return sumTotal; // returns the sum
 }
 
-// code from MDN: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random"
+// code from MDN: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random'
 function makeRandom(minCust, maxCust) { // gets random number from a range of two numbers
   minCust = Math.ceil(minCust); // rounds minCust up to the nearest whole number
   maxCust = Math.floor(maxCust); // rounds maxCust down to the nearest whole number
@@ -34,16 +34,16 @@ function renderTableHeader() { // renders table header to the DOM
   tableHeaderEl.textContent = 'Name'; // adds 'Name' to the table header
   tableRowEl.appendChild(tableHeaderEl); // appends the table header to the table row
   for(var i = 0; i < times.length; i ++) { // a for loop that creates the bulk of the header columns
-    var tableHeaderEl = document.createElement('th'); // creates a table header
+    tableHeaderEl = document.createElement('th'); // creates a table header
     tableHeaderEl.textContent = times[i]; // adds time from times array to the table header
     tableRowEl.appendChild(tableHeaderEl); // appends the table header to the table row
   }
-  var tableHeaderEl = document.createElement('th'); // creates a table header
+  tableHeaderEl = document.createElement('th'); // creates a table header
   tableHeaderEl.textContent = 'Total'; // adds 'Total' to the table header
   tableRowEl.appendChild(tableHeaderEl); // appends the table header to the table row
 }
 
-function renderCrossTotals() {
+function renderCrossTotals() { // renders the totals across stores using an array within an array
   tableBodyEl; // gets the location of table body element by id
   var tableRowEl = document.createElement('tr'); // creates a table row
   tableBodyEl.appendChild(tableRowEl); // appends the table row to the table body
@@ -51,18 +51,18 @@ function renderCrossTotals() {
   tableHeaderEl.textContent = 'Total'; // adds store name to the table data
   tableRowEl.appendChild(tableHeaderEl); // appends the table data to the table row
   var tableDataEl = document.createElement('th'); // creates a table header
-  for(var column = 0; column < allSales[0].length; column ++) {
+  for(var column = 0; column < allSales[0].length; column ++) { // a for loop that loops horizontally, selects each column of the arrays
     var verticalArray = [];
-    for(var i = 0; i < allSales.length; i ++) {
-      verticalArray.push(allSales[i][column]);
+    for(var i = 0; i < allSales.length; i ++) { // a for loop that loops vertically down the column
+      verticalArray.push(allSales[i][column]); // pushes the numbers from the column into verticalArray
     }
-    var verticalTotal = verticalArray.reduce(getSum);
-    crossTotals.push(verticalTotal);
+    var verticalTotal = verticalArray.reduce(getSum); // gets sum from verticalArray
+    crossTotals.push(verticalTotal); // pushes each sum into crossTotals global array
     tableDataEl = document.createElement('td'); // creates a table data
     tableDataEl.textContent = verticalTotal; // adds cookiesSoldPerHour to table data
     tableRowEl.appendChild(tableDataEl); // appends the table data to the table row
   }
-  var finalTotal = crossTotals.reduce(getSum);
+  var finalTotal = crossTotals.reduce(getSum); // gets the final combined total of all cookies sold
   tableDataEl = document.createElement('td'); // creates a table data
   tableDataEl.textContent = finalTotal; // adds cookiesSoldPerHour to table data
   tableRowEl.appendChild(tableDataEl); // appends the table data to the table row
