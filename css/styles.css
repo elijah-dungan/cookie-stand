@@ -59,6 +59,7 @@ nav ul li {
     margin: 0;
 }
 #login {
+    border-radius: 25px;
     border: 1px solid rgb(235, 235, 0);
     font-size: 0.95em;
     font-weight: bold;
@@ -122,16 +123,15 @@ header {
     right: 0;
     margin: 7% auto 0 auto;
     opacity: 0.8;
-    z-index: 1;
+    z-index: -1;
 }
 main {
     margin: 0;
-    overflow-y: scroll;
+    /*overflow-y: scroll;*/
     height: 72vh;
 }
 section {
-    display: table;
-    margin: 0 auto;
+    margin: 2.6% auto 2.6% auto;
 }
 h2 {
     font-size: 2em;
@@ -142,12 +142,27 @@ h2 {
     margin: 0;
     padding: 1%;
 }
-.sales-list {
+table {
+    background-color: rgb(255, 120, 120, 0.85);
+    border: 1px solid rgb(235, 235, 0);
+    border-radius: 25px;
+    padding: 1%;
+}
+th {
+    padding: 0.5%;
+}
+td {
+    border-radius: 25px;
+    text-align: center;
+}
+td:first-child {
+    color: rgb(235, 235, 0);
+    width: 175px;
+}
+#sales-table {
     list-style-type: none;
     font-size: 1.2em;
     font-weight: bolder;
-    position: relative;
-    z-index: 999;
 }
 .flex-box-container-three {
     position: relative;

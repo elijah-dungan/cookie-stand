@@ -2,13 +2,12 @@
 
 /* --Global Variables */
 
-var tBodyEl = document.getElementById('sales-table');
+var tableBodyEl = document.getElementById('sales-table');
 
 /* --Global Arrays-- */
 
-var times = ['6am:', '7am:', '8am:', '9am:', '10am:', '11am:', '12pm:', '1pm:', '2pm:', '3pm:', '4pm:', '5pm:', '6pm:', '7pm:', '8pm:']; // array of times from 6am to 8pm
-var allStores = [];
-var allSales = [];
+var times = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm']; // array of times from 6am to 8pm
+var allSales = []; // stores all cookie sold per hour from all stores into one array
 
 /* --Global Arrays-- */
 
@@ -26,6 +25,23 @@ function makeRandom(minCust, maxCust) { // gets random number from a range of tw
   return Math.floor(Math.random() * (maxCust - minCust + 1)) + minCust;
 }
 
+function renderTableHeader() {
+  tableBodyEl;
+  var tableRowEl = document.createElement('tr');
+  tableBodyEl.appendChild(tableRowEl);
+  var tableHeaderEl = document.createElement('th');
+  tableHeaderEl.textContent = 'Name';
+  tableRowEl.appendChild(tableHeaderEl);
+  for(var i = 0; i < times.length; i ++) {
+    var tableHeaderEl = document.createElement('th');
+    tableHeaderEl.textContent = times[i];
+    tableRowEl.appendChild(tableHeaderEl);
+  }
+  var tableHeaderEl = document.createElement('th');
+  tableHeaderEl.textContent = 'Total';
+  tableRowEl.appendChild(tableHeaderEl);
+}
+
 function Store(name, minCustPerHour, maxCustPerHour, averageCookieSale) {
   this.name = name;
   this.minCustPerHour = minCustPerHour;
@@ -34,63 +50,35 @@ function Store(name, minCustPerHour, maxCustPerHour, averageCookieSale) {
   this.cookiesSoldPerHour = []; // stores cookies sold per hour
 }
 
-function renderTableHeader() {
-
-  tBodyEl;
-  var trEl = document.createElement('tr');
-  tBodyEl.appendChild(trEl);
-
-  var thEl = document.createElement('th');
-  thEl.textContent = 'Name';
-  trEl.appendChild(thEl);
-
-  for(var i = 0; i < times.length; i ++) {
-    var thEl = document.createElement('th');
-    thEl.textContent = times[i];
-    trEl.appendChild(thEl);
-  }
-
-  var thEl = document.createElement('th');
-  thEl.textContent = 'Total';
-  trEl.appendChild(thEl);
-
-}
-
 /* --Functions-- */
 
 /* --Prototypes-- */
 
 Store.prototype.renderTableData = function() { // generates a list of random cookies based on a parent element ID and 3 numbers
   console.log(`elementId: ${this.storeLocation}, minCustPerHour: ${this.minCustPerHour}, maxCustPerHour: ${this.maxCustPerHour}, averageCookieSale: ${this.averageCookieSale}`);
-
-  tBodyEl;
-  var trEl = document.createElement('tr');
-  tBodyEl.appendChild(trEl);
-
-  var tdEl = document.createElement('td');
-  tdEl.textContent = this.name;
-  trEl.appendChild(tdEl);
-
+  var listTableHeaders = document.getElementsByTagName('th');
+  if(listTableHeaders.length < 1) {
+    renderTableHeader();
+  }
+  tableBodyEl;
+  var tableRowEl = document.createElement('tr');
+  tableBodyEl.appendChild(tableRowEl);
+  var tableDataEl = document.createElement('td');
+  tableDataEl.textContent = this.name;
+  tableRowEl.appendChild(tableDataEl);
   for(var i = 0; i < times.length; i ++) { // for loop that generates simulated sales and pushes into salesArray
     var randomNum = makeRandom(this.minCustPerHour, this.maxCustPerHour);
     this.cookiesSoldPerHour.push(Math.round(randomNum * this.averageCookieSale)); // gets randomly generated number from minCustPerHour and maxCustPerHour, multiplies this number by meanCookieSale, pushes number into salesArray
-
-    tdEl = document.createElement('td');
-    tdEl.textContent = this.cookiesSoldPerHour[i];
-    trEl.appendChild(tdEl);
-
+    tableDataEl = document.createElement('td');
+    tableDataEl.textContent = this.cookiesSoldPerHour[i];
+    tableRowEl.appendChild(tableDataEl);
     console.log(`randomNum: ${randomNum}, cookiesSoldPerHour: ${this.cookiesSoldPerHour[i]}`);
   }
-
   var total = this.cookiesSoldPerHour.reduce(getSum);
-
-  tdEl = document.createElement('td');
-  tdEl.textContent = total;
-  trEl.appendChild(tdEl);
-
+  tableDataEl = document.createElement('td');
+  tableDataEl.textContent = total;
+  tableRowEl.appendChild(tableDataEl);
   allSales.push(this.cookiesSoldPerHour); // stores salesArray into an array
-  allStores.push(this); // stores instance into an array
-
   console.log(`listTotal: ${total}`);
 };
 
@@ -108,7 +96,6 @@ var alki = new Store('Alki', '2', '16', '4.6');
 
 /* --Method Calls-- */
 
-renderTableHeader();
 firstAndPike.renderTableData();
 seaTacAirport.renderTableData();
 seattleCenter.renderTableData();
@@ -117,5 +104,4 @@ alki.renderTableData();
 
 /* --Method Calls-- */
 
-console.log(allStores);
 console.log(allSales);
