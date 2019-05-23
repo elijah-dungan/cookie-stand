@@ -8,6 +8,7 @@ var tableBodyEl = document.getElementById('sales-table'); // stores reference to
 
 var times = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm']; // array of times from 6am to 8pm
 var allSales = []; // stores all cookie sold per hour from all stores into one array
+var crossTotals = []; // stores totals per hour across stores
 
 /* --Global Arrays-- */
 
@@ -40,6 +41,30 @@ function renderTableHeader() { // renders table header to the DOM
   var tableHeaderEl = document.createElement('th'); // creates a table header
   tableHeaderEl.textContent = 'Total'; // adds 'Total' to the table header
   tableRowEl.appendChild(tableHeaderEl); // appends the table header to the table row
+}
+
+function renderCrossTotals() {
+  tableBodyEl; // gets the location of table body element by id
+  var tableRowEl = document.createElement('tr'); // creates a table row
+  tableBodyEl.appendChild(tableRowEl); // appends the table row to the table body
+  var tableDataEl = document.createElement('td'); // creates a table data
+  tableDataEl.textContent = 'Total'; // adds store name to the table data
+  tableRowEl.appendChild(tableDataEl); // appends the table data to the table row
+  for(var column = 0; column < allSales[0].length; column ++) {
+    var verticalArray = [];
+    for(var i = 0; i < allSales.length; i ++) {
+      verticalArray.push(allSales[i][column]);
+    }
+    var verticalTotal = verticalArray.reduce(getSum);
+    crossTotals.push(verticalTotal);
+    tableDataEl = document.createElement('td'); // creates a table data
+    tableDataEl.textContent = verticalTotal; // adds cookiesSoldPerHour to table data
+    tableRowEl.appendChild(tableDataEl); // appends the table data to the table row
+  }
+  var finalTotal = crossTotals.reduce(getSum);
+  tableDataEl = document.createElement('td'); // creates a table data
+  tableDataEl.textContent = finalTotal; // adds cookiesSoldPerHour to table data
+  tableRowEl.appendChild(tableDataEl); // appends the table data to the table row
 }
 
 function Store(nameLocation, minCustPerHour, maxCustPerHour, averageCookieSale) { // constructor function, acts as a template for each store
@@ -104,4 +129,11 @@ alki.renderTableData();
 
 /* --Method Calls-- */
 
+/* --Function Calls-- */
+
+renderCrossTotals();
+
+/* --Function Calls-- */
+
 console.log(allSales);
+console.log(crossTotals);
