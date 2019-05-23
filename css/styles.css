@@ -134,7 +134,7 @@ section {
 table {
     border: 1px solid rgb(235, 235, 0);
     padding: 1%;
-    min-width: 875px;
+    min-width: 800px;
     background-color: rgb(255, 120, 120, 0.85);
     border-radius: 25px;
     box-shadow: 

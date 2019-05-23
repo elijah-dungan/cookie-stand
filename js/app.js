@@ -6,7 +6,7 @@ var tableBodyEl = document.getElementById('sales-table'); // stores reference to
 
 /* --Global Arrays-- */
 
-var times = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm']; // array of times from 6am to 8pm
+var times = ['7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm']; // array of times from 6am to 8pm
 var allStores = [];
 var allSales = []; // stores all cookie sold per hour from all stores into one array
 var hourlyTotals = []; // stores totals per hour across stores
