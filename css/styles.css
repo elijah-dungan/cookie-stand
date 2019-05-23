@@ -109,6 +109,15 @@ main {
     flex-direction: column;
     justify-content: space-between;
 }
+.h1-yellow {
+    margin: 0;
+    padding: 0.5% 0 0.5% 0;
+    color: rgb(235, 235, 0);
+    font-family: 'Stylish', Arial, sans-serif;
+    font-size: 5em;
+    font-weight: bolder;
+    text-align: center;
+}
 .h1-white {
     margin: 0;
     padding: 0.5% 0 0.5% 0;
@@ -118,14 +127,10 @@ main {
     font-weight: bolder;
     text-align: center;
 }
-.h1-yellow {
-    margin: 0;
-    padding: 0.5% 0 0.5% 0;
-    color: rgb(235, 235, 0);
-    font-family: 'Stylish', Arial, sans-serif;
-    font-size: 5em;
-    font-weight: bolder;
-    text-align: center;
+#tm {
+    margin: 0 0 10px 0;
+    font-size: 30px;
+    font-weight: normal;
 }
 section {
     margin: 2.6% auto 2.6% auto;
