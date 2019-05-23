@@ -8,9 +8,7 @@ var tableBodyEl = document.getElementById('sales-table'); // stores reference to
 
 var times = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm']; // array of times from 6am to 8pm
 var allSales = []; // stores all cookie sold per hour from all stores into one array
-var crossTotals = []; // stores totals per hour across stores
-
-/* --Global Arrays-- */
+var hourlyTotals = []; // stores totals per hour across stores
 
 /* --Functions-- */
 
@@ -43,7 +41,7 @@ function renderTableHeader() { // renders table header to the DOM
   tableRowEl.appendChild(tableHeaderEl); // appends the table header to the table row
 }
 
-function renderCrossTotals() { // renders the totals across stores using an array within an array
+function renderHourlyTotals() { // renders the totals across stores using an array within an array
   tableBodyEl; // gets the location of table body element by id
   var tableRowEl = document.createElement('tr'); // creates a table row
   tableBodyEl.appendChild(tableRowEl); // appends the table row to the table body
@@ -51,20 +49,20 @@ function renderCrossTotals() { // renders the totals across stores using an arra
   tableHeaderEl.textContent = 'Total'; // adds store name to the table data
   tableRowEl.appendChild(tableHeaderEl); // appends the table data to the table row
   var tableDataEl = document.createElement('th'); // creates a table header
-  for(var column = 0; column < allSales[0].length; column ++) { // a for loop that loops horizontally, selects each column of the arrays
-    var verticalArray = [];
+  for(var column = 0; column < allSales[0].length; column ++) { // a for loop that loops horizontally, selecting each column of the allSales array
+    var verticalArray = []; // stores numbers from vertical loop
     for(var i = 0; i < allSales.length; i ++) { // a for loop that loops vertically down the column
       verticalArray.push(allSales[i][column]); // pushes the numbers from the column into verticalArray
     }
     var verticalTotal = verticalArray.reduce(getSum); // gets sum from verticalArray
-    crossTotals.push(verticalTotal); // pushes each sum into crossTotals global array
+    hourlyTotals.push(verticalTotal); // pushes each sum into crossTotals global array
     tableDataEl = document.createElement('td'); // creates a table data
-    tableDataEl.textContent = verticalTotal; // adds cookiesSoldPerHour to table data
+    tableDataEl.textContent = verticalTotal; // adds verticalTotal to table data
     tableRowEl.appendChild(tableDataEl); // appends the table data to the table row
   }
-  var finalTotal = crossTotals.reduce(getSum); // gets the final combined total of all cookies sold
+  var finalTotal = hourlyTotals.reduce(getSum); // gets the final combined total of all cookies sold
   tableDataEl = document.createElement('td'); // creates a table data
-  tableDataEl.textContent = finalTotal; // adds cookiesSoldPerHour to table data
+  tableDataEl.textContent = finalTotal; // adds finalTotal to table data
   tableRowEl.appendChild(tableDataEl); // appends the table data to the table row
 }
 
@@ -75,8 +73,6 @@ function Store(nameLocation, minCustPerHour, maxCustPerHour, averageCookieSale) 
   this.averageCookieSale = averageCookieSale; // average cookie sales per customer
   this.cookiesSoldPerHour = []; // array that stores cookies sold per hour
 }
-
-/* --Functions-- */
 
 /* --Prototypes-- */
 
@@ -100,15 +96,13 @@ Store.prototype.renderTableData = function() { // renders table data to the DOM
     tableRowEl.appendChild(tableDataEl); // appends the table data to the table row
     console.log(`randomNum: ${randomNum}, cookiesSoldPerHour: ${this.cookiesSoldPerHour[i]}`);
   }
-  var totalCookiesSold = this.cookiesSoldPerHour.reduce(getSum); // sums the total amount of cookiesSoldPerHour
+  var locationTotal = this.cookiesSoldPerHour.reduce(getSum); // sums the total amount of cookiesSoldPerHour
   tableDataEl = document.createElement('td'); // creates a table data
-  tableDataEl.textContent = totalCookiesSold; // adds totalCookiesSold to the table data
+  tableDataEl.textContent = locationTotal; // adds totalCookiesSold to the table data
   tableRowEl.appendChild(tableDataEl); // appends the table data to the table row
   allSales.push(this.cookiesSoldPerHour); // stores cookiesSoldPerHour into a global sales array
-  console.log(`totalCookiesSold: ${totalCookiesSold}`);
+  console.log(`locationTotal: ${locationTotal}`);
 };
-
-/* --Prototypes-- */
 
 /* --Instances-- */
 
@@ -118,8 +112,6 @@ var seattleCenter = new Store('Seattle Center', '11', '38', '3.7');
 var capitolHill = new Store('Capitol Hill', '20', '38', '2.3');
 var alki = new Store('Alki', '2', '16', '4.6');
 
-/* --Instances-- */
-
 /* --Method Calls-- */
 
 firstAndPike.renderTableData();
@@ -128,13 +120,8 @@ seattleCenter.renderTableData();
 capitolHill.renderTableData();
 alki.renderTableData();
 
-/* --Method Calls-- */
-
 /* --Function Calls-- */
 
-renderCrossTotals();
-
-/* --Function Calls-- */
-
+renderHourlyTotals();
 console.log(allSales);
-console.log(crossTotals);
+console.log(hourlyTotals);
