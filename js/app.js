@@ -64,6 +64,7 @@ function renderHourlyTotals() { // renders the totals across stores using an arr
   tableDataEl = document.createElement('td'); // creates a table data
   tableDataEl.textContent = finalTotal; // adds finalTotal to table data
   tableRowEl.appendChild(tableDataEl); // appends the table data to the table row
+  console.log(`finalTotal: ${finalTotal}`);
 }
 
 function Store(nameLocation, minCustPerHour, maxCustPerHour, averageCookieSale) { // constructor function, acts as a template for each store
