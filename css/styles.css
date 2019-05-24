@@ -110,7 +110,6 @@ hr {
 #salmon-image {
     margin: 0 auto 0 auto;
     width: 36%;
-   
 }
 #salmon-image:hover {
     animation: shake 0.7s; 
