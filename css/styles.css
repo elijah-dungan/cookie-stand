@@ -21,11 +21,12 @@ html {
     scroll-behavior: smooth;
 }
 body {
-    background-color: rgb(255, 80, 80);
+    background-image: radial-gradient(ellipse, rgb(255, 100, 100) 25%, rgb(255, 80, 80));
+    min-width: 960px;
     margin: 0;
 }
 #contact-number {
-    margin: 1.3% 2.9% -1% 0;
+    margin: -0.3% 2.9% -1% 0;
     text-align: right;
 }
 nav {
@@ -44,7 +45,7 @@ nav {
 }
 #logo {
     padding: 0;
-    width: 30px;
+    width: 40px;
 }
 #links-area {
     margin: 0;
@@ -103,7 +104,7 @@ nav ul li {
 hr {
     margin: 0;
     border: 0;
-    height: 1px;
+    padding: 1px;;
     width: 95%;
     background-color: rgb(235, 235, 0);
 }
@@ -128,9 +129,7 @@ hr {
     color: rgb(235, 235, 0);
 }
 main {
-    background-image: radial-gradient(ellipse, rgb(255, 100, 100) 25%, rgb(255, 90, 90) 50%, rgb(255, 80, 80));
     margin: 0;
-    min-height: 500px;
 }
 .h1-yellow {
     margin: 0;
