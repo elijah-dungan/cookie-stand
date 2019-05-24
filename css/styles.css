@@ -26,7 +26,7 @@ body {
     margin: 0;
 }
 #contact-number {
-    margin: -0.2% 2.9% -0.5% 0;
+    margin: -0.2% 2.9% -0.6% 0;
     text-align: right;
 }
 nav {
@@ -115,7 +115,7 @@ hr {
 #salmon-image {
     display: block;
     margin: 0 auto 0 auto;
-    width: 33%;
+    width: 33.8%;
 }
 #salmon-image:hover {
     animation: shake 0.7s; 
