@@ -1,4 +1,17 @@
 @import url('https://fonts.googleapis.com/css?family=Alfa+Slab+One|Stylish&display=swap');
+@keyframes shake { /* from w3schools "https://www.w3schools.com/howto/howto_css_shake_image.asp" */
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
 
 * {
     color: rgb(255, 255, 255);
@@ -8,12 +21,11 @@ html {
     scroll-behavior: smooth;
 }
 body {
-    /*background-image: radial-gradient(ellipse, rgb(255, 100, 100) 40%, rgb(255, 90, 90) 80%, rgb(255, 80, 80));*/
-    background-color: rgb(255, 90, 90);
+    background-image: radial-gradient(ellipse, rgb(255, 100, 100) 25%, rgb(255, 90, 90) 50%, rgb(255, 80, 80));
     margin: 0;
 }
 #contact-number {
-    margin: 0 2.9% -1% 0;
+    margin: 1.3% 2.9% -1% 0;
     text-align: right;
 }
 nav {
@@ -21,7 +33,6 @@ nav {
     padding: 0 3% 0.5% 3%;
 }
 .flex-box-container-two {
-    position: relative;
     display: flex;
     align-items: center;
     flex-direction: row;
@@ -29,11 +40,11 @@ nav {
     z-index: 999;
 }
 #logo-area {
-    margin: 0;
+    margin: 0 0 -4px 0;
 }
 #logo {
     padding: 0;
-    width: 50px;
+    width: 30px;
 }
 #links-area {
     margin: 0;
@@ -70,7 +81,7 @@ nav ul li {
     height: 30px;
     width: 75px;
     color: rgb(235, 235, 0);
-    font-size: 0.95em;
+    font-size: 1em;
     font-weight: bold;
     text-decoration: none;
 }
@@ -78,7 +89,6 @@ nav ul li {
     color: rgb(255, 255, 255);
 }
 .flex-box-container-one {
-    position: relative;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -88,26 +98,26 @@ hr {
     margin: 0;
     border: 0;
     height: 1px;
-    width: 90%;
+    width: 95%;
     background-color: rgb(235, 235, 0);
 }
 #salmon-image {
-    position: absolute;
-    left: 0;
-    right: 0;
-    margin: 6% auto 0 auto;
-    width: 38%;
-    z-index: -1;
+    margin: 0 auto 0 auto;
+    width: 36%;
+   
+}
+#salmon-image:hover {
+    animation: shake 0.7s; 
+    animation-iteration-count: infinite; 
 }
 main {
     margin: 0;
-    height: 72vh;
+    height: 77.9vh;
 }
 .flex-box-container-three {
-    position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 .h1-yellow {
     margin: 0;
@@ -133,9 +143,14 @@ main {
     font-weight: normal;
 }
 section {
-    margin: 2.6% auto 2.6% auto;
+    position: fixed;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 999;
 }
 table {
+    margin: 0 auto -16% auto;
     border: 1px solid rgb(235, 235, 0);
     padding: 1%;
     min-width: 875px;
@@ -148,6 +163,7 @@ table {
     0 10px 10px rgb(0, 0, 0, 0.25);
 }
 #sales-table {
+
     font-size: 1em;
     font-weight: bolder;
     list-style-type: none;
@@ -169,6 +185,11 @@ td:first-child {
 }
 .hours-locations {
     font-size:1.2em;
+}
+.hours-locations-placeholder {
+    font-size:1.2em;
+    color: rgb(255, 90, 90);
+    color: rgb(255, 90, 90, 0);
 }
 .highlight {
     color: rgb(235, 235, 0);
