@@ -29,7 +29,7 @@ function renderTableHeader() { // renders table header to the DOM
   var tableRowEl = document.createElement('tr'); // creates a table row
   tableBodyEl.appendChild(tableRowEl); // appends the table row to the table body
   var tableHeaderEl = document.createElement('th'); // creates a table header
-  tableHeaderEl.textContent = 'Name'; // adds 'Name' to the table header
+  tableHeaderEl.textContent = 'Store Name'; // adds 'Name' to the table header
   tableRowEl.appendChild(tableHeaderEl); // appends the table header to the table row
   for(var i = 0; i < times.length; i ++) { // a for loop that creates the bulk of the header columns
     tableHeaderEl = document.createElement('th'); // creates a table header
@@ -46,7 +46,7 @@ function renderHourlyTotals() { // renders the totals across stores using an arr
   var tableRowEl = document.createElement('tr'); // creates a table row
   tableBodyEl.appendChild(tableRowEl); // appends the table row to the table body
   var tableHeaderEl = document.createElement('th'); // creates a table header
-  tableHeaderEl.textContent = 'Total'; // adds store name to the table header
+  tableHeaderEl.textContent = 'Hourly Total'; // adds store name to the table header
   tableRowEl.appendChild(tableHeaderEl); // appends the table header to the table row
   var tableDataEl = document.createElement('th'); // creates a table header
   for(var x = 0; x < allSales[0].length; x ++) { // a for loop that loops vertically, selecting each column
@@ -111,7 +111,7 @@ var firstAndPike = new Store('First and Pike', '23', '65', '6.3');
 var seaTacAirport = new Store('Sea Tac Airport', '3', '24', '1.2');
 var seattleCenter = new Store('Seattle Center', '11', '38', '3.7');
 var capitolHill = new Store('Capitol Hill', '20', '38', '2.3');
-var alki = new Store('Alki', '2', '16', '4.6');
+var alkiBeach = new Store('Alki Beach', '2', '16', '4.6');
 
 /* --Method Calls-- */
 
@@ -119,7 +119,7 @@ firstAndPike.renderTableData();
 seaTacAirport.renderTableData();
 seattleCenter.renderTableData();
 capitolHill.renderTableData();
-alki.renderTableData();
+alkiBeach.renderTableData();
 
 /* --Function Calls-- */
 
