@@ -21,12 +21,12 @@ html {
     scroll-behavior: smooth;
 }
 body {
-    background-image: radial-gradient(ellipse, rgb(255, 110, 110) 25%, rgb(255, 80, 80));
+    background-image: radial-gradient(ellipse, rgb(255, 105, 105) 25%, rgb(255, 80, 80));
     min-width: 960px;
     margin: 0;
 }
 #contact-number {
-    margin: -0.3% 2.9% -1% 0;
+    margin: -0.2% 2.9% -0.5% 0;
     text-align: right;
 }
 nav {
@@ -115,14 +115,14 @@ hr {
 #salmon-image {
     display: block;
     margin: 0 auto 0 auto;
-    width: 36%;
+    width: 33%;
 }
 #salmon-image:hover {
     animation: shake 0.7s; 
     animation-iteration-count: infinite; 
 }
 .quotation {
-    margin: 0.5%;
+    margin: 0.4% 0 0 0;
     font-size: 1.5em;
     font-weight: bolder;
     font-family: 'Indie Flower', cursive;
@@ -157,10 +157,10 @@ main {
 section {
     display: block;
     width: 100%;
-    min-height: 500px;
+    padding: 1.4% 0 1.4% 0;
 }
 table {
-    margin: 0 auto -16% auto;
+    margin: 0 auto 0 auto;
     border: 1px solid rgb(235, 235, 0);
     padding: 1%;
     min-width: 875px;
@@ -190,7 +190,7 @@ td:first-child {
 }
 .bottom-section {
     display: block;
-    margin: 0 0 0.5% 0;
+    padding: 0 0 0.5% 0;
     text-align: center;
 }
 .hours-locations {
