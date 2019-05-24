@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Alfa+Slab+One|Stylish&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower&display=swap');
 @keyframes shake { /* from w3schools "https://www.w3schools.com/howto/howto_css_shake_image.asp" */
     0% { transform: translate(1px, 1px) rotate(0deg); }
     10% { transform: translate(-1px, -2px) rotate(-1deg); }
@@ -20,11 +21,12 @@ html {
     scroll-behavior: smooth;
 }
 body {
-    background-image: radial-gradient(ellipse, rgb(255, 100, 100) 25%, rgb(255, 90, 90) 50%, rgb(255, 80, 80));
+    background-image: radial-gradient(ellipse, rgb(255, 100, 100) 25%, rgb(255, 80, 80));
+    min-width: 960px;
     margin: 0;
 }
 #contact-number {
-    margin: 1.3% 2.9% -1% 0;
+    margin: -0.3% 2.9% -1% 0;
     text-align: right;
 }
 nav {
@@ -43,7 +45,7 @@ nav {
 }
 #logo {
     padding: 0;
-    width: 30px;
+    width: 40px;
 }
 #links-area {
     margin: 0;
@@ -98,16 +100,20 @@ nav ul li {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    z-index: 999;
 }
 hr {
     margin: 0;
     border: 0;
-    height: 1px;
+    padding: 1px;;
     width: 95%;
     background-color: rgb(235, 235, 0);
 }
+.middle-section {
+    margin: 0 0 0 0;
+    width: 100%;
+}
 #salmon-image {
+    display: block;
     margin: 0 auto 0 auto;
     width: 36%;
 }
@@ -115,14 +121,15 @@ hr {
     animation: shake 0.7s; 
     animation-iteration-count: infinite; 
 }
+.quotation {
+    margin: 0.5%;
+    font-size: 1.5em;
+    font-weight: bolder;
+    font-family: 'Indie Flower', cursive;
+    color: rgb(235, 235, 0);
+}
 main {
     margin: 0;
-    height: 77.9vh;
-}
-.flex-box-container-three {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
 }
 .h1-yellow {
     margin: 0;
@@ -148,11 +155,9 @@ main {
     font-weight: normal;
 }
 section {
-    position: fixed;
-    left: 0;
-    right: 0;
+    display: block;
     width: 100%;
-    z-index: 999;
+    min-height: 500px;
 }
 table {
     margin: 0 auto -16% auto;
@@ -184,6 +189,7 @@ td:first-child {
     color: rgb(235, 235, 0);
 }
 .bottom-section {
+    display: block;
     margin: 0 0 0.5% 0;
     text-align: center;
 }
