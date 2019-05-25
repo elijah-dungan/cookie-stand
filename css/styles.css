@@ -21,7 +21,7 @@ html {
     scroll-behavior: smooth;
 }
 body {
-    background-image: radial-gradient(ellipse, rgb(255, 105, 105) 25%, rgb(255, 80, 80));
+    background-image: radial-gradient(ellipse, rgb(255, 100, 100) 25%, rgb(255, 70, 70));
     min-width: 960px;
     margin: 0;
 }
