@@ -49,15 +49,15 @@ function renderHourlyTotals() { // renders the totals across stores using an arr
   tableHeaderEl.textContent = 'Hourly Total'; // adds store name to the table header
   tableRowEl.appendChild(tableHeaderEl); // appends the table header to the table row
   var tableDataEl = document.createElement('th'); // creates a table header
-  for(var x = 0; x < allSales[0].length; x ++) { // a for loop that loops vertically, selecting each column
-    var verticalArray = []; // stores numbers from vertical loop
-    for(var y = 0; y < allSales.length; y ++) { // a for loop that loops horizontally down a column
-      verticalArray.push(allSales[y][x]); // pushes the numbers from the column into verticalArray
+  for(var x = 0; x < allSales[0].length; x ++) { // a for loop that selects each column
+    var columnArray = []; // stores numbers within each column
+    for(var y = 0; y < allSales.length; y ++) { // a for loop that loops down the column
+      columnArray.push(allSales[y][x]); // pushes the numbers from the column into columnArray
     }
-    var verticalTotal = verticalArray.reduce(getSum); // gets sum from verticalArray
-    hourlyTotals.push(verticalTotal); // pushes each sum into crossTotals global array
+    var columnTotal = columnArray.reduce(getSum); // gets sum from colulmnArray
+    hourlyTotals.push(columnTotal); // pushes each sum into crossTotals global array
     tableDataEl = document.createElement('td'); // creates table data
-    tableDataEl.textContent = verticalTotal; // adds verticalTotal to the table data
+    tableDataEl.textContent = columnTotal; // adds columnTotal to the table data
     tableRowEl.appendChild(tableDataEl); // appends the table data to the table row
   }
   var finalTotal = hourlyTotals.reduce(getSum); // gets the final combined total of all cookies sold
