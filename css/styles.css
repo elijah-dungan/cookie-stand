@@ -166,7 +166,7 @@ fieldset {
     color: black;
     text-align: center;
 }
-section {
+.table-area {
     display: block;
     width: 100%;
     padding: 1.4% 0 1.4% 0;

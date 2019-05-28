@@ -124,22 +124,22 @@ function renderTableFooter() { // renders the totals across stores using an arra
 
 /* --Event Handler-- */
 
-function submitHandler(event) {
-  event.preventDefault();
-  if(event.target) {
-    var formNameLocation = event.target.nameLoc.value;
-    var formMinCustPerHour = event.target.minCust.value;
-    var formMaxCustPerHour = event.target.maxCust.value;
-    var formAverageCookieSale = event.target.averageSale.value;
+function submitHandler(event) { // event handler that adds a new store
+  event.preventDefault(); // removes default form settings set by the browser
+  if(event.target) { // checks if the event occured
+    var formNameLocation = event.target.nameLoc.value; // stores input value entered by the user
+    var formMinCustPerHour = event.target.minCust.value; // stores input value entered by the user
+    var formMaxCustPerHour = event.target.maxCust.value; // stores input value entered by the user
+    var formAverageCookieSale = event.target.averageSale.value; // stores input value entered by the user
     new Store(formNameLocation, formMinCustPerHour, formMaxCustPerHour, formAverageCookieSale).renderTableData();
-    renderTableFooter();
+    renderTableFooter(); // renders a new footer
     console.log(`The form values are ${formNameLocation}, ${formMinCustPerHour}, ${formMaxCustPerHour}, and ${formAverageCookieSale}.`);
   }
 }
 
 /* --Event Listener-- */
 
-formEl.addEventListener('submit', submitHandler);
+formEl.addEventListener('submit', submitHandler); // event handler that listens for submit from a button
 
 /* --Method Calls-- */
 
