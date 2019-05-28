@@ -2,70 +2,14 @@
 
 /* --Global Variables */
 
-var tableBodyEl = document.getElementById('sales-table'); // stores reference to table element id
-
-/* --Global Arrays-- */
-
+var tableBodyEl = document.getElementById('table-body'); // stores reference to table element id
+var tableFootEl = document.getElementById('table-footer'); // stores reference to table element id
+var formEl = document.getElementById('form'); // stores reference to form element id
 var times = ['7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm']; // array of times from 6am to 8pm
 var allSales = []; // stores all cookies sold per hour by location (arrays within an array)
 var hourlyTotals = []; // stores totals per hour across stores
 
-/* --Functions-- */
-
-function getSum(total, currentNum) { // gets sum from two numbers, used with reduce() to get total sum from an array
-  var sumTotal = total + currentNum; // simple addition equation
-  return sumTotal; // returns the sum
-}
-
-// code from MDN: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random'
-function makeRandom(minCust, maxCust) { // gets random number from a range of two numbers
-  minCust = Math.ceil(minCust); // rounds minCust up to the nearest whole number
-  maxCust = Math.floor(maxCust); // rounds maxCust down to the nearest whole number
-  return Math.floor(Math.random() * (maxCust - minCust + 1)) + minCust; // generates random number based on minCust/maxCust
-}
-
-function renderTableHeader() { // renders table header to the DOM
-  tableBodyEl; // gets the location of table body element by id
-  var tableRowEl = document.createElement('tr'); // creates a table row
-  tableBodyEl.appendChild(tableRowEl); // appends the table row to the table body
-  var tableHeaderEl = document.createElement('th'); // creates a table header
-  tableHeaderEl.textContent = 'Store Name'; // adds 'Name' to the table header
-  tableRowEl.appendChild(tableHeaderEl); // appends the table header to the table row
-  for(var i = 0; i < times.length; i ++) { // a for loop that creates the bulk of the header columns
-    tableHeaderEl = document.createElement('th'); // creates a table header
-    tableHeaderEl.textContent = times[i]; // adds time from times array to the table header
-    tableRowEl.appendChild(tableHeaderEl); // appends the table header to the table row
-  }
-  tableHeaderEl = document.createElement('th'); // creates a table header
-  tableHeaderEl.textContent = 'Total'; // adds 'Total' to the table header
-  tableRowEl.appendChild(tableHeaderEl); // appends the table header to the table row
-}
-
-function renderHourlyTotals() { // renders the totals across stores using an array within an array
-  tableBodyEl; // gets the location of table body element by id
-  var tableRowEl = document.createElement('tr'); // creates a table row
-  tableBodyEl.appendChild(tableRowEl); // appends the table row to the table body
-  var tableHeaderEl = document.createElement('th'); // creates a table header
-  tableHeaderEl.textContent = 'Hourly Total'; // adds store name to the table header
-  tableRowEl.appendChild(tableHeaderEl); // appends the table header to the table row
-  var tableDataEl = document.createElement('th'); // creates a table header
-  for(var x = 0; x < allSales[0].length; x ++) { // a for loop that selects each column
-    var columnArray = []; // stores numbers within each column
-    for(var y = 0; y < allSales.length; y ++) { // a for loop that loops down the column
-      columnArray.push(allSales[y][x]); // pushes the numbers from the column into columnArray
-    }
-    var columnTotal = columnArray.reduce(getSum); // gets sum from colulmnArray
-    hourlyTotals.push(columnTotal); // pushes each sum into crossTotals global array
-    tableDataEl = document.createElement('td'); // creates table data
-    tableDataEl.textContent = columnTotal; // adds columnTotal to the table data
-    tableRowEl.appendChild(tableDataEl); // appends the table data to the table row
-  }
-  var finalTotal = hourlyTotals.reduce(getSum); // gets the final combined total of all cookies sold
-  tableDataEl = document.createElement('td'); // creates table data
-  tableDataEl.textContent = finalTotal; // adds finalTotal to the table data
-  tableRowEl.appendChild(tableDataEl); // appends the table data to the table row
-  console.log(`finalTotal: ${finalTotal}`);
-}
+/* --Constructor Functions-- */
 
 function Store(nameLocation, minCustPerHour, maxCustPerHour, averageCookieSale) { // constructor function, acts as a template for each store
   this.nameLocation = nameLocation; // the name or location of each store
@@ -113,6 +57,90 @@ var seattleCenter = new Store('Seattle Center', '11', '38', '3.7');
 var capitolHill = new Store('Capitol Hill', '20', '38', '2.3');
 var alkiBeach = new Store('Alki Beach', '2', '16', '4.6');
 
+/* --Functions-- */
+
+function getSum(total, currentNum) { // gets sum from two numbers, used with reduce() to get total sum from an array
+  var sumTotal = total + currentNum; // simple addition equation
+  return sumTotal; // returns the sum
+}
+
+// code from MDN: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random'
+function makeRandom(minCust, maxCust) { // gets random number from a range of two numbers
+  minCust = Math.ceil(minCust); // rounds minCust up to the nearest whole number
+  maxCust = Math.floor(maxCust); // rounds maxCust down to the nearest whole number
+  return Math.floor(Math.random() * (maxCust - minCust + 1)) + minCust; // generates random number based on minCust/maxCust
+}
+
+function renderTableHeader() { // renders table header to the DOM
+  tableBodyEl; // gets the location of table body element by id
+  var tableRowEl = document.createElement('tr'); // creates a table row
+  tableBodyEl.appendChild(tableRowEl); // appends the table row to the table body
+  var tableHeaderEl = document.createElement('th'); // creates a table header
+  tableHeaderEl.textContent = 'Store Name'; // adds 'Name' to the table header
+  tableRowEl.appendChild(tableHeaderEl); // appends the table header to the table row
+  for(var i = 0; i < times.length; i ++) { // a for loop that creates the bulk of the header columns
+    tableHeaderEl = document.createElement('th'); // creates a table header
+    tableHeaderEl.textContent = times[i]; // adds time from times array to the table header
+    tableRowEl.appendChild(tableHeaderEl); // appends the table header to the table row
+  }
+  tableHeaderEl = document.createElement('th'); // creates a table header
+  tableHeaderEl.textContent = 'Total'; // adds 'Total' to the table header
+  tableRowEl.appendChild(tableHeaderEl); // appends the table header to the table row
+}
+
+function renderTableFooter() { // renders the totals across stores using an array within an array
+  tableFootEl; // gets the location of table body element by id
+  if(hourlyTotals.length > 0) { // checks hourlyTotals array for values
+    console.log(tableFootEl.firstElementChild);
+    var removeEl = tableFootEl.firstElementChild;
+    tableFootEl.removeChild(removeEl);
+    for(var i = 0; i <= times.length; i++) { // a for loop that deletes all values based on the length of the times array
+      hourlyTotals.pop(); // deletes values from hourlyTotals array
+    }
+  }
+  var tableRowEl = document.createElement('tr'); // creates a table row
+  tableFootEl.appendChild(tableRowEl); // appends the table row to the table body
+  var tableHeaderEl = document.createElement('th'); // creates a table header
+  tableHeaderEl.textContent = 'Hourly Total'; // adds store name to the table header
+  tableRowEl.appendChild(tableHeaderEl); // appends the table header to the table row
+  var tableDataEl = document.createElement('th'); // creates a table header
+  for(var x = 0; x < allSales[0].length; x ++) { // a for loop that selects each column
+    var columnArray = []; // stores numbers within each column
+    for(var y = 0; y < allSales.length; y ++) { // a for loop that loops down the column
+      columnArray.push(allSales[y][x]); // pushes the numbers from the column into columnArray
+    }
+    var columnTotal = columnArray.reduce(getSum); // gets sum from columnArray
+    hourlyTotals.push(columnTotal); // pushes each sum into hourlyTotals global array
+    tableDataEl = document.createElement('td'); // creates table data
+    tableDataEl.textContent = columnTotal; // adds columnTotal to the table data
+    tableRowEl.appendChild(tableDataEl); // appends the table data to the table row
+  }
+  var finalTotal = hourlyTotals.reduce(getSum); // gets the final combined total of all cookies sold
+  tableDataEl = document.createElement('td'); // creates table data
+  tableDataEl.textContent = finalTotal; // adds finalTotal to the table data
+  tableRowEl.appendChild(tableDataEl); // appends the table data to the table row
+  console.log(`hourlyTotal ${hourlyTotals}, finalTotal: ${finalTotal}`);
+}
+
+/* --Event Handler-- */
+
+function submitHandler(event) {
+  event.preventDefault();
+  if(event.target) {
+    var formNameLocation = event.target.nameLoc.value;
+    var formMinCustPerHour = event.target.minCust.value;
+    var formMaxCustPerHour = event.target.maxCust.value;
+    var formAverageCookieSale = event.target.averageSale.value;
+    new Store(formNameLocation, formMinCustPerHour, formMaxCustPerHour, formAverageCookieSale).renderTableData();
+    renderTableFooter();
+    console.log(`The form values are ${formNameLocation}, ${formMinCustPerHour}, ${formMaxCustPerHour}, and ${formAverageCookieSale}.`);
+  }
+}
+
+/* --Event Listener-- */
+
+formEl.addEventListener('submit', submitHandler);
+
 /* --Method Calls-- */
 
 firstAndPike.renderTableData();
@@ -123,6 +151,6 @@ alkiBeach.renderTableData();
 
 /* --Function Calls-- */
 
-renderHourlyTotals();
+renderTableFooter();
 console.log(allSales);
 console.log(hourlyTotals);

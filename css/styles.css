@@ -74,7 +74,7 @@ nav ul li {
 #login-area {
     margin: 0;
 }
-#login {
+.button {
     margin: 0;
     border: 1px solid rgb(235, 235, 0);
     border-radius: 25px;
@@ -92,7 +92,7 @@ nav ul li {
     inset 0 0 3px 5px rgba(0, 0, 0, 0.05),
     0 6px 4px rgb(0, 0, 0, 0.30);
 }
-#login:hover {
+.button:hover {
     color: rgb(255, 255, 255);
     background-color: rgb(255, 140, 140, 0.85);
 }
@@ -108,9 +108,9 @@ hr {
     width: 95%;
     background-color: rgb(235, 235, 0);
 }
-.middle-section {
+.image-area {
     margin: 0 0 0 0;
-    width: 100%;
+    width: auto;
 }
 #salmon-image {
     display: block;
@@ -154,12 +154,24 @@ main {
     font-size: 30px;
     font-weight: normal;
 }
+.submit-area {
+    width: 887px;
+    margin: 0 auto 0 auto;
+}
+fieldset {
+    border: none;
+    padding: 0;
+}
+.input {
+    color: black;
+    text-align: center;
+}
 section {
     display: block;
     width: 100%;
     padding: 1.4% 0 1.4% 0;
 }
-table {
+.forms {
     margin: 0 auto 0 auto;
     border: 1px solid rgb(235, 235, 0);
     padding: 1%;
@@ -171,24 +183,20 @@ table {
     inset 0 0 3px 0 rgba(0, 0, 0, 0.5),
     inset 0 0 3px 5px rgba(0, 0, 0, 0.05),
     0 6px 4px rgb(0, 0, 0, 0.25);
-}
-#sales-table {
     font-size: 1em;
     font-weight: bolder;
     list-style-type: none;
+    text-align: center;
+    padding: 0.5%;
 }
 th {
     padding: 0.5%;
-}
-td {
-    border-radius: 25px;
-    text-align: center;
 }
 td:first-child {
     width: 175px;
     color: rgb(235, 235, 0);
 }
-.bottom-section {
+.quote-area {
     display: block;
     padding: 0 0 0.5% 0;
     text-align: center;
