@@ -39,14 +39,14 @@ Store.prototype.renderTableData = function() { // renders table data to the DOM
     tableDataEl = document.createElement('td'); // creates table data
     tableDataEl.textContent = this.cookiesSoldPerHour[i]; // adds cookiesSoldPerHour to the table data
     tableRowEl.appendChild(tableDataEl); // appends the table data to the table row
-    console.log(`randomNum: ${randomNum}, cookiesSoldPerHour: ${this.cookiesSoldPerHour[i]}`);
+    console.log(`randomNum: ${randomNum}, cookiesSoldPerHour: ${this.cookiesSoldPerHour[i]}`); // allows dev to check math in console log
   }
   var locationTotal = this.cookiesSoldPerHour.reduce(getSum); // sums the total amount of cookiesSoldPerHour
   tableDataEl = document.createElement('td'); // creates table data
   tableDataEl.textContent = locationTotal; // adds totalCookiesSold to the table data
   tableRowEl.appendChild(tableDataEl); // appends the table data to the table row
   allSales.push(this.cookiesSoldPerHour); // stores cookiesSoldPerHour into a global sales array
-  console.log(`locationTotal: ${locationTotal}`);
+  console.log(`locationTotal: ${locationTotal}`); // allows dev to check math in console log
 };
 
 /* --Instances-- */
@@ -91,9 +91,9 @@ function renderTableHeader() { // renders table header to the DOM
 function renderTableFooter() { // renders the totals across stores using an array within an array
   tableFootEl; // gets the location of table body element by id
   if(hourlyTotals.length > 0) { // checks hourlyTotals array for values
-    console.log(tableFootEl.firstElementChild);
-    var removeEl = tableFootEl.firstElementChild;
-    tableFootEl.removeChild(removeEl);
+    console.log(tableFootEl.firstElementChild); // allows dev to check correct child selection, should return '<tr>...</tr>'
+    var removeEl = tableFootEl.firstElementChild; // gets the first <tr> from the table footer
+    tableFootEl.removeChild(removeEl); // removes the first <tr> from the table footer
     for(var i = 0; i <= times.length; i++) { // a for loop that deletes all values based on the length of the times array
       hourlyTotals.pop(); // deletes values from hourlyTotals array
     }
@@ -119,7 +119,7 @@ function renderTableFooter() { // renders the totals across stores using an arra
   tableDataEl = document.createElement('td'); // creates table data
   tableDataEl.textContent = finalTotal; // adds finalTotal to the table data
   tableRowEl.appendChild(tableDataEl); // appends the table data to the table row
-  console.log(`hourlyTotal ${hourlyTotals}, finalTotal: ${finalTotal}`);
+  console.log(`finalTotal: ${finalTotal}`); // allows dev to check math in console log
 }
 
 /* --Event Handler-- */
@@ -133,7 +133,7 @@ function submitHandler(event) { // event handler that adds a new store
     var formAverageCookieSale = event.target.averageSale.value; // stores input value entered by the user
     new Store(formNameLocation, formMinCustPerHour, formMaxCustPerHour, formAverageCookieSale).renderTableData();
     renderTableFooter(); // renders a new footer
-    console.log(`The form values are ${formNameLocation}, ${formMinCustPerHour}, ${formMaxCustPerHour}, and ${formAverageCookieSale}.`);
+    console.log(`The form values are ${formNameLocation}, ${formMinCustPerHour}, ${formMaxCustPerHour}, and ${formAverageCookieSale}.`); // allows dev to check inputs in console log
   }
 }
 
@@ -151,6 +151,6 @@ alkiBeach.renderTableData();
 
 /* --Function Calls-- */
 
-renderTableFooter();
-console.log(allSales);
-console.log(hourlyTotals);
+renderTableFooter(); // renders the table footer consisting of hourly totals
+console.log(allSales); // allows dev to check math in console log
+console.log(hourlyTotals); // allows dev to check math in console log

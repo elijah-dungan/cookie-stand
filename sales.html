@@ -35,10 +35,10 @@
                 <form id="form" class="forms">
                     <fieldset>
                         <label>Add New Store</label>
-                        <input class="input" name="nameLoc" type="text" placeholder="store name or location" required="required" />
-                        <input class="input" name="minCust" type="text" placeholder="min customers per hour" required="required" />
-                        <input class="input" name="maxCust" type="text" placeholder="max customers per hour" required="required" />
-                        <input class="input" name="averageSale" type="text" placeholder="average cookie sale" required="required" />
+                        <input class="input" name="nameLoc" type="text" placeholder="store name or location" required="required" maxlength="24" />
+                        <input class="input" name="minCust" type="text" placeholder="min customers per hour" required="required" maxlength="6"/>
+                        <input class="input" name="maxCust" type="text" placeholder="max customers per hour" required="required" maxlength="6"/>
+                        <input class="input" name="averageSale" type="text" placeholder="average cookie sale" required="required" maxlength="6"/>
                         <button class="button" name="submit-button">Submit</button>
                     </fieldset>
                 </form>
