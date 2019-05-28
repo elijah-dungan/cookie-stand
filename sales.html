@@ -21,7 +21,7 @@
                 </ul>
             </div> 
             <div id="login-area">
-                <a id="login" href="#">Login</a>
+                <a class="button" href="#">Login</a>
             </div>
         </nav>
         <div class="flex-box-container-one">
@@ -31,12 +31,24 @@
             <div class="flex-box-container-one">
                 <h1 class="h1-yellow">Salmon</h1><h1 class="h1-white">Cookies<sup id="tm">&trade;</sup></h1>
             </div>
-            <div class="middle-section">   
-            </div>
+            <div class="submit-area">   
+                <form id="form" class="forms">
+                    <fieldset>
+                        <label>Add Store:</label>
+                        <input class="input" name="nameLoc" type="text" placeholder="store name or location" required="required" />
+                        <input class="input" name="minCust" type="text" placeholder="min customers per hour" required="required" />
+                        <input class="input" name="maxCust" type="text" placeholder="max customers per hour" required="required" />
+                        <input class="input" name="averageSale" type="text" placeholder="average cookie sale" required="required" />
+                        <button class="button" name="submit-button">Submit</button>
+                    </fieldset>
+                </form>
+            </div>        
             <section>
-                <table>
-                    <tbody id="sales-table">
+                <table class="forms">
+                    <tbody id="table-body">
                     </tbody>
+                    <tfoot id="table-footer">
+                    </tfoot>
                 </table>
             </section>
         </main>
