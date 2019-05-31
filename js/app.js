@@ -122,10 +122,18 @@ function renderTableFooter() { // renders the totals across stores using an arra
   console.log(`finalTotal: ${finalTotal}`); // allows dev to check math in console log
 }
 
-/* --Event Handler-- */
+/* --Event Handler-- w/ IE Fallback */
 
 function submitHandler(event) { // event handler that adds a new store
-  event.preventDefault(); // removes default form settings set by the browser
+  if (!event) { // checks for browser support
+    event = window.event; // --Fallback-- if browser is IE
+  }
+  formEl = event.target || event.srcElement; // gets target of event
+  if (event.preventDefault) { // checks for browser support
+    event.preventDefault(); // removes default form settings set by the browser
+  } else { // --Fallback-- if browser is IE
+    event.returnValue = false; // // removes default form settings set by the browser
+  }
   if(event.target) { // checks if the event occured
     var formNameLocation = event.target.nameLoc.value; // stores input value entered by the user
     var formMinCustPerHour = event.target.minCust.value; // stores input value entered by the user
@@ -137,9 +145,13 @@ function submitHandler(event) { // event handler that adds a new store
   }
 }
 
-/* --Event Listener-- */
+/* --Event Listener-- w/ IE Fallback*/
 
-formEl.addEventListener('submit', submitHandler); // event handler that listens for submit from a button
+if(formEl.addEventListener) { // checks for browser support
+  formEl.addEventListener('submit', submitHandler); // event handler that listens for submit from a button
+} else { // --Fallback-- if browser is IE, listener will use attachEvent
+  formEl.attachEvent('onSubmit', submitHandler); // event handler that listens for submit from a button
+}
 
 /* --Method Calls-- */
 
