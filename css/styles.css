@@ -21,9 +21,17 @@ html {
     scroll-behavior: smooth;
 }
 body {
-    background-image: radial-gradient(ellipse, rgb(255, 100, 100) 25%, rgb(255, 70, 70));
+    background-color: rgb(255, 70, 70);
     min-width: 960px;
     margin: 0;
+}
+#sticky-header {
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    right: 0;
+    background-color: rgb(255, 70, 70);
+    border-bottom: 2px solid rgb(235, 235, 0);
 }
 #contact-number {
     margin: -0.2% 2.9% -0.6% 0;
@@ -106,35 +114,40 @@ nav ul li {
     flex-direction: row;
     justify-content: center;
 }
-hr {
-    margin: 0;
-    border: 0;
-    padding: 1px;;
-    width: 95%;
-    background-color: rgb(235, 235, 0);
+.image-area-one {
+    margin: 0 0 0 0;
+    width: auto;
 }
-.image-area {
+.product-image-area {
+    background-color: white;
     margin: 0 0 0 0;
     width: auto;
 }
 #salmon-image {
     display: block;
     margin: 0 auto 0 auto;
-    width: 33.8%;
+    width: 38%;
 }
 #salmon-image:hover {
     animation: shake 0.7s; 
     animation-iteration-count: infinite; 
 }
 .quotation {
-    margin: 0.4% 0 0 0;
+    margin: 1% 0 0 0;
     font-size: 1.5em;
     font-weight: bolder;
     font-family: 'Indie Flower', cursive;
     color: rgb(235, 235, 0);
 }
-main {
-    margin: 0;
+#padding-top {
+    padding: 90px 0 0 0;
+}
+#padding-bottom {
+    padding: 75px 0 0 0;
+}
+#home {
+    background-image: radial-gradient(ellipse, rgb(255, 100, 100) 25%, rgb(255, 70, 70) 75%, rgb(255, 70, 70));
+    padding: 0 0 0 0;
 }
 .h1-yellow {
     margin: 0;
@@ -216,6 +229,14 @@ td:first-child {
     font-weight: bolder;
 }
 footer {
+    border-top: 2px solid rgb(235, 235, 0);
+    background-color: rgb(255, 70, 70);
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 70px;
+    z-index: 999;
     margin: 0;
     padding: 1%;
     text-align: center;
