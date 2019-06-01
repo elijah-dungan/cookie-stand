@@ -21,7 +21,7 @@ html {
     scroll-behavior: smooth;
 }
 body {
-    background-color: rgb(255, 70, 70);
+    background-color: rgb(255, 90, 90);
     min-width: 960px;
     margin: 0;
 }
@@ -30,7 +30,7 @@ body {
     z-index: 999;
     left: 0;
     right: 0;
-    background-color: rgb(255, 70, 70);
+    background-color: rgb(255, 90, 90);
     border-bottom: 2px solid rgb(235, 235, 0);
 }
 #contact-number {
@@ -164,7 +164,7 @@ nav div ul li a:hover {
     padding: 90px 0 0 0;
 }
 .padding-red {
-    background-color: rgb(255, 70, 70);
+    background-color: rgb(255, 90, 90);
     padding: 85px 0 0 0;
 }
 .padding-white {
@@ -174,7 +174,7 @@ nav div ul li a:hover {
 .product-display {
     width: 290px;
     height: 250px;
-    border: 2px solid rgb(255, 70, 70);
+    border: 2px solid rgb(255, 90, 90);
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -188,12 +188,12 @@ nav div ul li a:hover {
     text-align: center;
 }
 #hero-image {
-    background-image: radial-gradient(ellipse, rgb(255, 100, 100) 25%, rgb(255, 70, 70) 75%, rgb(255, 70, 70));
+    background-image: radial-gradient(ellipse, rgb(255, 120, 120) 25%, rgb(255, 90, 90) 75%, rgb(255, 90, 90));
     padding: 0 0 0 0;
 }
 #stores-area {
     margin: 0;
-    background-color: rgb(255, 70, 70);
+    background-color: rgb(255, 90, 90);
 }
 .h1-yellow {
     margin: 0;
@@ -216,7 +216,7 @@ nav div ul li a:hover {
 .h1-pink {
     margin: 0;
     padding: 0.4% 0 0.4% 0;
-    color: rgb(255, 70, 70);
+    color: rgb(255, 90, 90);
     font-family: 'Stylish', Arial, sans-serif;
     font-size: 5em;
     font-weight: bolder;
@@ -232,7 +232,7 @@ nav div ul li a:hover {
     text-align: center;
 }
 h2 {
-    background-color: rgb(255, 70, 70);
+    background-color: rgb(255, 90, 90);
     font-size: 1.2em;
     font-weight: bold;
     margin: 0;
@@ -252,7 +252,7 @@ h3 {
     font-weight: normal;
 }
 #admin {
-    background-color: rgb(255, 70, 70);
+    background-color: rgb(255, 90, 90);
 }
 .submit-area {
     width: 887px;
@@ -274,7 +274,7 @@ fieldset {
     display: block;
     width: 100%;
     padding: 0 0 1.4% 0;
-}
+} 
 .forms {
     margin: 10px auto 24px auto;
     border: 1px solid rgb(235, 235, 0);
@@ -334,7 +334,7 @@ td:first-child {
 }
 footer {
     border-top: 2px solid rgb(235, 235, 0);
-    background-color: rgb(255, 70, 70);
+    background-color: rgb(255, 90, 90);
     position: fixed;
     left: 0;
     bottom: 0;
