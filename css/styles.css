@@ -125,7 +125,6 @@ nav ul li {
 }
 #about-image-area {
     background-image: url('https://elijah-dungan.github.io/imagebucket/family.jpg'); 
-    min-height: 1000px;
     width: 100%;
     background-attachment: fixed; 
     background-size: cover;
@@ -191,7 +190,6 @@ nav ul li {
     padding: 0 0 0 0;
 }
 #stores-area {
-    min-height: 900px;
     margin: 0;
     background-color: rgb(255, 70, 70);
 }
