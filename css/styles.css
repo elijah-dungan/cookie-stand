@@ -78,7 +78,7 @@ nav div ul li a {
 .border-right {
     border-right: 2px solid rgb(235, 235, 0);
 }
-.nav-links:hover {
+nav div ul li a:hover {
     color: rgb(255, 255, 255);
 }
 #login-area {
