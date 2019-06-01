@@ -145,8 +145,8 @@ nav ul li {
 }
 #salmon-image {
     display: block;
-    margin: 1% auto 1.2% auto; /*10px auto 14px auto;*/
-    width: 560px;
+    margin: 2% auto 2.4% auto; /*10px auto 14px auto;*/
+    width: 500px;
 }
 #salmon-image:hover {
     animation: shake 0.7s; 
