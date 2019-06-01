@@ -188,12 +188,14 @@ nav div ul li a:hover {
     text-align: center;
 }
 #hero-image {
-    background-image: radial-gradient(ellipse, rgb(255, 120, 120) 25%, rgb(255, 90, 90) 75%, rgb(255, 90, 90));
+    background-image: radial-gradient(ellipse, rgb(255, 120, 120) 25%, rgb(255, 90, 90) 65%, rgb(255, 90, 90));
     padding: 0 0 0 0;
 }
 #stores-area {
     margin: 0;
     background-color: rgb(255, 90, 90);
+    /*background-image: url('https://elijah-dungan.github.io/imagebucket/65_Salmon_Sub2.jpg');*/
+    background-repeat: repeat;
 }
 .h1-yellow {
     margin: 0;
