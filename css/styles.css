@@ -145,8 +145,8 @@ nav ul li {
 }
 #salmon-image {
     display: block;
-    margin: 2% auto 2.4% auto; /*10px auto 14px auto;*/
-    width: 500px;
+    margin: 10px auto 14px auto;
+    width: 38%; /*590px;*/
 }
 #salmon-image:hover {
     animation: shake 0.7s; 
@@ -160,7 +160,7 @@ nav ul li {
     color: rgb(235, 235, 0);
 }
 .padding-transparent {
-    padding: 6% 0 0 0;
+    padding: 90px 0 0 0;
 }
 .padding-red {
     background-color: rgb(255, 70, 70);
