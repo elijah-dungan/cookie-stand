@@ -118,15 +118,15 @@ nav ul li {
     margin: 0 0 0 0;
     width: auto;
 }
-.product-image-area {
-    background-color: white;
+#product-image-area {
+    background-color: rgb(255, 255, 255);
     margin: 0 0 0 0;
     width: auto;
 }
 #salmon-image {
     display: block;
-    margin: 0 auto 0 auto;
-    width: 38%;
+    margin: 10px auto 14px auto;
+    width: 590px;
 }
 #salmon-image:hover {
     animation: shake 0.7s; 
@@ -139,11 +139,35 @@ nav ul li {
     font-family: 'Indie Flower', cursive;
     color: rgb(235, 235, 0);
 }
-#padding-top {
-    padding: 90px 0 0 0;
+.padding-transparent {
+    padding: 83px 0 0 0;
 }
-#padding-bottom {
-    padding: 75px 0 0 0;
+.padding-red {
+    background-color: rgb(255, 70, 70);
+    padding: 120px 0 0 0;
+}
+.padding-white {
+    background-color: rgb(255, 255, 255);
+    padding: 120px 0 0 0;
+}
+section {
+    /*min-height: 600px;*/
+}
+.product-display {
+    width: 290px;
+    height: 250px;
+    border: 2px solid rgb(255, 70, 70);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.product-display img {
+    object-fit: contain;
+}
+.product-wrap {
+    margin: 0 10px 30px 10px;
+    text-align: center;
 }
 #home {
     background-image: radial-gradient(ellipse, rgb(255, 100, 100) 25%, rgb(255, 70, 70) 75%, rgb(255, 70, 70));
@@ -165,6 +189,39 @@ nav ul li {
     font-family: 'Stylish', Arial, sans-serif;
     font-size: 5em;
     font-weight: bolder;
+    text-align: center;
+}
+.h1-pink {
+    margin: 0;
+    padding: 0.4% 0 0.4% 0;
+    color: rgb(255, 70, 70);
+    font-family: 'Stylish', Arial, sans-serif;
+    font-size: 5em;
+    font-weight: bolder;
+    text-align: center;
+}
+.h1-black {
+    margin: 0;
+    padding: 0.4% 0 0.4% 0;
+    color: rgb(50, 50, 50);
+    font-family: 'Stylish', Arial, sans-serif;
+    font-size: 5em;
+    font-weight: bolder;
+    text-align: center;
+}
+h2 {
+    background-color: rgb(255, 70, 70);
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 0;
+    padding: 8px 8px 6px 8px;
+    color: rgb(235, 235, 0);
+    text-align: center;
+}
+h3 {
+    margin: 1%;
+    padding: 1%;
+    color: rgb(50, 50, 50);
     text-align: center;
 }
 #tm {
@@ -235,7 +292,7 @@ footer {
     left: 0;
     bottom: 0;
     width: 100%;
-    height: 70px;
+    height: 63px;
     z-index: 999;
     margin: 0;
     padding: 1%;
