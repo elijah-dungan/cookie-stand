@@ -123,10 +123,27 @@ nav ul li {
     margin: 0 0 0 0;
     width: auto;
 }
+#about-image-area {
+    background-image: url('file:///C:/Users/Elijah/code-fellows/201/lab6/images/family.jpg'); 
+    margin: 0 0 0 0;
+    height: 900px;
+    width: auto;
+    background-attachment: fixed; 
+    background-size: cover;
+    margin: 0; /* removes default margins from body */
+}
+#about-image-area p {
+    margin: 0;
+    line-height: 175%;
+    padding: 0 8% 0 8%;
+    font-size: 1.2em;
+    font-family: 'Times New Roman', Times, serif;
+    color: rgb(50, 50, 50);
+}
 #salmon-image {
     display: block;
-    margin: 10px auto 14px auto;
-    width: 590px;
+    margin: 1% auto 1.2% auto; /*10px auto 14px auto;*/
+    width: 38%; /*590px;*/
 }
 #salmon-image:hover {
     animation: shake 0.7s; 
@@ -169,7 +186,7 @@ section {
     margin: 0 10px 30px 10px;
     text-align: center;
 }
-#home {
+#hero-image {
     background-image: radial-gradient(ellipse, rgb(255, 100, 100) 25%, rgb(255, 70, 70) 75%, rgb(255, 70, 70));
     padding: 0 0 0 0;
 }
@@ -229,6 +246,9 @@ h3 {
     font-size: 30px;
     font-weight: normal;
 }
+#admin {
+    background-color: rgb(255, 70, 70);
+}
 .submit-area {
     width: 887px;
     margin: 0 auto 0 auto;
@@ -238,6 +258,7 @@ fieldset {
     padding: 0;
 }
 .input {
+    width: 16%;
     color: rgb(0, 0, 0);
 }
 ::placeholder {
