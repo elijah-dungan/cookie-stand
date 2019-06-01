@@ -122,6 +122,13 @@ function renderTableFooter() { // renders the totals across stores using an arra
   console.log(`finalTotal: ${finalTotal}`); // allows dev to check math in console log
 }
 
+function clear() {
+  event.target.nameLoc.value = null;
+  event.target.minCust.value = null;
+  event.target.maxCust.value = null;
+  event.target.averageSale.value = null;
+}
+
 /* --Event Handler-- w/ IE Fallback */
 
 function submitHandler(event) { // event handler that adds a new store
@@ -140,6 +147,7 @@ function submitHandler(event) { // event handler that adds a new store
     var formMaxCustPerHour = event.target.maxCust.value; // stores input value entered by the user
     var formAverageCookieSale = event.target.averageSale.value; // stores input value entered by the user
     new Store(formNameLocation, formMinCustPerHour, formMaxCustPerHour, formAverageCookieSale).renderTableData();
+    clear();
     renderTableFooter(); // renders a new footer
     console.log(`The form values are ${formNameLocation}, ${formMinCustPerHour}, ${formMaxCustPerHour}, and ${formAverageCookieSale}.`); // allows dev to check inputs in console log
   }
