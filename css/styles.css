@@ -173,7 +173,7 @@ nav div ul li a:hover {
 }
 .product-display {
     width: 290px;
-    height: 250px;
+    height: 260px;
     border: 2px solid rgb(255, 90, 90);
     overflow: hidden;
     display: flex;
