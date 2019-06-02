@@ -147,7 +147,7 @@ nav div ul li a:hover {
 #salmon-image {
     display: block;
     margin: 10px auto 14px auto;
-    width: 38%; /*590px;*/
+    width: 38.2%; /*590px;*/
 }
 #salmon-image:hover {
     animation: shake 0.7s; 
