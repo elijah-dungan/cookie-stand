@@ -48,9 +48,9 @@ nav {
     justify-content: space-between;
     z-index: 999;
 }
-#logo-area {
+/* #logo-area {
     margin: 0 0 -4px 0;
-}
+} */
 #logo {
     padding: 0;
     width: 40px;
@@ -102,7 +102,7 @@ nav div ul li a:hover {
     inset 0 0 3px 5px rgba(0, 0, 0, 0.05),
     0 6px 4px rgb(0, 0, 0, 0.30);
 }
-.button:hover {
+.button:hover { 
     color: rgb(255, 255, 255);
     background-color: rgb(255, 140, 140, 0.85);
     box-shadow: 
@@ -181,6 +181,7 @@ nav div ul li a:hover {
     justify-content: center;
 }
 .product-display img {
+    padding: 1px;
     object-fit: contain;
 }
 .product-wrap {
