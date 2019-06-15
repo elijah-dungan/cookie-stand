@@ -161,15 +161,29 @@ nav div ul li a:hover {
     color: rgb(235, 235, 0);
 }
 .padding-transparent {
+    background-color: rgb(255, 90, 90);
     padding: 90px 0 0 0;
 }
 .padding-red {
-    background-color: rgb(255, 90, 90);
+    /* background-color: rgb(255, 90, 90); */
+    background-image: url('https://elijah-dungan.github.io/imagebucket/waves-white.jpg'); 
+    background-repeat: repeat-x;
     padding: 85px 0 0 0;
+    background-position-x: -45px;
 }
 .padding-white {
-    background-color: rgb(255, 255, 255);
+    /* background-color: rgb(255, 255, 255); */
+    background-image: url('https://elijah-dungan.github.io/imagebucket/waves-transparent-white.png'); 
+    background-repeat: repeat-x;
     padding: 85px 0 0 0;
+    background-position-x: -45px;
+}
+.padding-four {
+    /* background-color: rgb(255, 90, 90); */
+    background-image: url('https://elijah-dungan.github.io/imagebucket/waves-transparent-red.png'); 
+    background-repeat: repeat-x;
+    padding: 85px 0 0 0;
+    background-position-x: -45px;
 }
 .product-display {
     width: 290px;
@@ -278,6 +292,9 @@ fieldset {
     width: 100%;
     padding: 0 0 1.4% 0;
 } 
+#sales {
+    background-color: rgb(255, 90, 90);
+}
 .forms {
     margin: 10px auto 24px auto;
     border: 1px solid rgb(235, 235, 0);
@@ -338,12 +355,12 @@ td:first-child {
 footer {
     border-top: 2px solid rgb(235, 235, 0);
     background-color: rgb(255, 90, 90);
-    position: fixed;
+    /* position: fixed;
     left: 0;
-    bottom: 0;
-    width: 100%;
+    bottom: 0; */
+    width: auto;
     height: 63px;
-    z-index: 999;
+    /* z-index: 999; */
     margin: 0;
     padding: 1%;
     text-align: center;
